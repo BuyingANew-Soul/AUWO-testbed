@@ -1,0 +1,2 @@
+source;share/robot_slam_rtabmap/environment/ament_prefix_path.sh
+source;share/robot_slam_rtabmap/environment/path.sh

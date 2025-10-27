@@ -1,0 +1,53 @@
+Panels:
+  - Class: rviz_common/Displays
+    Name: Displays
+  - Class: rviz_common/Views
+    Name: Views
+
+Visualization Manager:
+  Displays:
+    - Class: rviz_default_plugins/Grid
+      Name: Grid
+      Reference Frame: map
+      
+    - Class: rviz_default_plugins/TF
+      Name: TF
+      Show Axes: true
+      Show Names: true
+      
+    - Class: rviz_default_plugins/LaserScan
+      Name: LaserScan
+      Topic: /scan
+      Size: 0.05
+      Color: 255; 0; 0
+      
+    - Class: rviz_default_plugins/Map
+      Name: OccupancyGrid
+      Topic: /rtabmap/grid_map
+      Color Scheme: map
+      
+    - Class: rviz_default_plugins/PointCloud2
+      Name: CloudMap
+      Topic: /rtabmap/cloud_map
+      Size: 0.01
+      Color: 255; 255; 255
+      
+    - Class: rviz_default_plugins/Image
+      Name: RGB Image
+      Topic: /d435i_camera/color/image_raw
+      
+    - Class: rviz_default_plugins/Camera
+      Name: Camera
+      Topic: /d435i_camera/color/image_raw
+      
+  Global Options:
+    Fixed Frame: map
+    
+  Views:
+    Current:
+      Class: rviz_default_plugins/Orbit
+      Distance: 10.0
+      Focal Point:
+        X: 0
+        Y: 0
+        Z: 0

@@ -1,0 +1,114 @@
+[0.019s] Invoking command in '/home/orin/AUWO-testbed/build/robot_slam_rtab': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/orin/roarm_ws_em0/install/ros2web_widgets:/home/orin/roarm_ws_em0/install/ros2web_example_py:/home/orin/roarm_ws_em0/install/roarm_web_app:/home/orin/roarm_ws_em0/install/ros2web_app:/home/orin/roarm_ws_em0/install/ros2web:/home/orin/roarm_ws_em0/install/roarm_driver:/home/orin/roarm_ws_em0/install/launch_api:/opt/ros/humble /usr/bin/cmake /home/orin/AUWO-testbed/src/robot_slam_rtabmap -DCMAKE_INSTALL_PREFIX=/home/orin/AUWO-testbed/install/robot_slam_rtab
+[0.122s] -- The C compiler identification is GNU 11.4.0
+[0.230s] -- The CXX compiler identification is GNU 11.4.0
+[0.253s] -- Detecting C compiler ABI info
+[0.420s] -- Detecting C compiler ABI info - done
+[0.445s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.446s] -- Detecting C compile features
+[0.448s] -- Detecting C compile features - done
+[0.460s] -- Detecting CXX compiler ABI info
+[0.636s] -- Detecting CXX compiler ABI info - done
+[0.662s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.663s] -- Detecting CXX compile features
+[0.665s] -- Detecting CXX compile features - done
+[0.683s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[1.056s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[1.333s] -- Found rclcpp: 16.0.15 (/opt/ros/humble/share/rclcpp/cmake)
+[1.501s] -- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[1.522s] -- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[1.557s] -- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[1.600s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.656s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.816s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[1.829s] -- Found rmw_fastrtps_cpp: 6.2.9 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[2.061s] -- Found OpenSSL: /usr/lib/aarch64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[2.147s] -- Found FastRTPS: /opt/ros/humble/include  
+[2.237s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[2.272s] -- Looking for pthread.h
+[2.466s] -- Looking for pthread.h - found
+[2.467s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[2.642s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[2.644s] -- Found Threads: TRUE  
+[2.879s] -- Found rtabmap_ros: 0.22.1 (/opt/ros/humble/share/rtabmap_ros/cmake)
+[2.887s] -- Found rtabmap_slam: 0.22.1 (/opt/ros/humble/share/rtabmap_slam/cmake)
+[4.016s] -- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)
+[4.019s] -- Found Eigen3: TRUE (found version "3.4.0") 
+[4.019s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[4.130s] -- Checking for module 'eigen3'
+[4.155s] --   Found eigen3, version 3.4.0
+[4.238s] -- Found Eigen: /usr/include/eigen3 (Required is at least version "3.1") 
+[4.239s] -- Eigen found (include: /usr/include/eigen3, version: 3.4.0)
+[4.381s] -- Checking for module 'flann'
+[4.413s] --   Found flann, version 1.9.1
+[4.541s] -- Found FLANN: /usr/lib/aarch64-linux-gnu/libflann_cpp.so  
+[4.541s] -- FLANN found (include: /usr/include, lib: /usr/lib/aarch64-linux-gnu/libflann_cpp.so)
+[7.588s] -- Checking for module 'libusb-1.0'
+[7.628s] --   Found libusb-1.0, version 1.0.25
+[7.720s] -- Found libusb: /usr/lib/aarch64-linux-gnu/libusb-1.0.so  
+[7.727s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[7.885s] -- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/aarch64-linux-gnu/libOpenNI2.so;libusb::libusb)
+[8.172s] -- Eigen found (include: /usr/include/eigen3, version: 3.4.0)
+[8.181s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[8.190s] -- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/aarch64-linux-gnu/libOpenNI2.so;libusb::libusb)
+[8.435s] -- Found Qhull version 8.0.2
+[8.680s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[8.919s] -- Found PCL_COMMON: /usr/lib/aarch64-linux-gnu/libpcl_common.so  
+[8.920s] -- Found PCL_KDTREE: /usr/lib/aarch64-linux-gnu/libpcl_kdtree.so  
+[8.921s] -- Found PCL_OCTREE: /usr/lib/aarch64-linux-gnu/libpcl_octree.so  
+[8.923s] -- Found PCL_SEARCH: /usr/lib/aarch64-linux-gnu/libpcl_search.so  
+[8.924s] -- Found PCL_SAMPLE_CONSENSUS: /usr/lib/aarch64-linux-gnu/libpcl_sample_consensus.so  
+[8.926s] -- Found PCL_FILTERS: /usr/lib/aarch64-linux-gnu/libpcl_filters.so  
+[8.926s] -- Found PCL_2D: /usr/include/pcl-1.12  
+[8.927s] -- Found PCL_GEOMETRY: /usr/include/pcl-1.12  
+[8.928s] -- Found PCL_IO: /usr/lib/aarch64-linux-gnu/libpcl_io.so  
+[8.930s] -- Found PCL_FEATURES: /usr/lib/aarch64-linux-gnu/libpcl_features.so  
+[8.932s] -- Found PCL_ML: /usr/lib/aarch64-linux-gnu/libpcl_ml.so  
+[8.933s] -- Found PCL_SEGMENTATION: /usr/lib/aarch64-linux-gnu/libpcl_segmentation.so  
+[8.935s] -- Found PCL_VISUALIZATION: /usr/lib/aarch64-linux-gnu/libpcl_visualization.so  
+[8.936s] -- Found PCL_SURFACE: /usr/lib/aarch64-linux-gnu/libpcl_surface.so  
+[8.938s] -- Found PCL_REGISTRATION: /usr/lib/aarch64-linux-gnu/libpcl_registration.so  
+[8.939s] -- Found PCL_KEYPOINTS: /usr/lib/aarch64-linux-gnu/libpcl_keypoints.so  
+[8.941s] -- Found PCL_TRACKING: /usr/lib/aarch64-linux-gnu/libpcl_tracking.so  
+[8.942s] -- Found PCL_RECOGNITION: /usr/lib/aarch64-linux-gnu/libpcl_recognition.so  
+[8.945s] -- Found PCL_STEREO: /usr/lib/aarch64-linux-gnu/libpcl_stereo.so  
+[8.946s] -- Found PCL_APPS: /usr/lib/aarch64-linux-gnu/libpcl_apps.so  
+[8.947s] -- Found PCL_IN_HAND_SCANNER: /usr/include/pcl-1.12  
+[8.948s] -- Found PCL_MODELER: /usr/include/pcl-1.12  
+[8.951s] -- Found PCL_POINT_CLOUD_EDITOR: /usr/include/pcl-1.12  
+[8.952s] -- Found PCL_OUTOFCORE: /usr/lib/aarch64-linux-gnu/libpcl_outofcore.so  
+[8.954s] -- Found PCL_PEOPLE: /usr/lib/aarch64-linux-gnu/libpcl_people.so  
+[9.054s] [33mCMake Warning (dev) at /usr/share/cmake-3.22/Modules/CMakeFindDependencyMacro.cmake:47 (find_package):
+[9.055s]   Policy CMP0074 is not set: find_package uses <PackageName>_ROOT variables.
+[9.055s]   Run "cmake --help-policy CMP0074" for policy details.  Use the cmake_policy
+[9.055s]   command to set the policy and suppress this warning.
+[9.055s] 
+[9.055s]   CMake variable PCL_ROOT is set to:
+[9.055s] 
+[9.055s]     /usr
+[9.056s] 
+[9.056s]   For compatibility, CMake is ignoring the variable.
+[9.056s] Call Stack (most recent call first):
+[9.056s]   /opt/ros/humble/lib/aarch64-linux-gnu/rtabmap-0.22/RTABMapConfig.cmake:7 (find_dependency)
+[9.056s]   /opt/ros/humble/share/rtabmap_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+[9.056s]   /opt/ros/humble/share/rtabmap_conversions/cmake/rtabmap_conversionsConfig.cmake:41 (include)
+[9.056s]   /opt/ros/humble/share/rtabmap_util/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+[9.056s]   /opt/ros/humble/share/rtabmap_util/cmake/rtabmap_utilConfig.cmake:41 (include)
+[9.056s]   /opt/ros/humble/share/rtabmap_slam/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+[9.056s]   /opt/ros/humble/share/rtabmap_slam/cmake/rtabmap_slamConfig.cmake:41 (include)
+[9.057s]   CMakeLists.txt:12 (find_package)
+[9.057s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[9.057s] [0m
+[9.392s] -- Found rtabmap_viz: 0.22.1 (/opt/ros/humble/share/rtabmap_viz/cmake)
+[9.401s] -- Found ament_lint_auto: 0.12.14 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[9.544s] [31mCMake Error at /opt/ros/humble/share/ament_cmake_core/cmake/core/ament_package_xml.cmake:53 (message):
+[9.544s]   ament_package_xml() package name 'robot_slam_rtab' in '/package.xml' does
+[9.544s]   not match current PROJECT_NAME 'excavator_slam'.  You must call project()
+[9.545s]   with the same package name before.
+[9.545s] Call Stack (most recent call first):
+[9.545s]   /opt/ros/humble/share/ament_lint_auto/cmake/ament_lint_auto_find_test_dependencies.cmake:31 (ament_package_xml)
+[9.546s]   CMakeLists.txt:30 (ament_lint_auto_find_test_dependencies)
+[9.546s] 
+[9.546s] [0m
+[9.546s] -- Configuring incomplete, errors occurred!
+[9.547s] See also "/home/orin/AUWO-testbed/build/robot_slam_rtab/CMakeFiles/CMakeOutput.log".
+[9.645s] Invoked command in '/home/orin/AUWO-testbed/build/robot_slam_rtab' returned '1': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/orin/roarm_ws_em0/install/ros2web_widgets:/home/orin/roarm_ws_em0/install/ros2web_example_py:/home/orin/roarm_ws_em0/install/roarm_web_app:/home/orin/roarm_ws_em0/install/ros2web_app:/home/orin/roarm_ws_em0/install/ros2web:/home/orin/roarm_ws_em0/install/roarm_driver:/home/orin/roarm_ws_em0/install/launch_api:/opt/ros/humble /usr/bin/cmake /home/orin/AUWO-testbed/src/robot_slam_rtabmap -DCMAKE_INSTALL_PREFIX=/home/orin/AUWO-testbed/install/robot_slam_rtab

@@ -1,0 +1,216 @@
+[0.000000] (-) TimerEvent: {}
+[0.000604] (robot_slam_rtab) JobQueued: {'identifier': 'robot_slam_rtab', 'dependencies': OrderedDict()}
+[0.000857] (robot_slam_rtab) JobStarted: {'identifier': 'robot_slam_rtab'}
+[0.018043] (robot_slam_rtab) JobProgress: {'identifier': 'robot_slam_rtab', 'progress': 'cmake'}
+[0.018923] (robot_slam_rtab) Command: {'cmd': ['/usr/bin/cmake', '/home/orin/AUWO-testbed/src/robot_slam_rtabmap', '-DCMAKE_INSTALL_PREFIX=/home/orin/AUWO-testbed/install/robot_slam_rtab'], 'cwd': '/home/orin/AUWO-testbed/build/robot_slam_rtab', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'orin'), ('SSH_CLIENT', '10.0.0.130 49018 22'), ('LC_TIME', 'fi_FI.UTF-8'), ('XDG_SESSION_TYPE', 'tty'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/orin/roarm_ws_em0/install/ros2web_interfaces/lib:/home/orin/roarm_ws_em0/install/roarm_moveit_ikfast_plugins/lib:/home/orin/roarm_ws_em0/install/roarm_moveit/lib:/home/orin/roarm_ws_em0/install/moveit_servo/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/orin'), ('OLDPWD', '/home/orin/AUWO-testbed/src'), ('SSH_TTY', '/dev/pts/0'), ('ROS_PYTHON_VERSION', '3'), ('LC_MONETARY', 'fi_FI.UTF-8'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLCON_PREFIX_PATH', '/home/orin/AUWO-testbed/install:/home/orin/roarm_ws_em0/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'orin'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '4'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/orin/.local/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('LC_ADDRESS', 'fi_FI.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('LANG', 'en_US.UTF-8'), ('LC_TELEPHONE', 'fi_FI.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/home/orin/AUWO-testbed/install/robot_slam_rtabmap:/home/orin/roarm_ws_em0/install/ros2web_widgets:/home/orin/roarm_ws_em0/install/ros2web_example_py:/home/orin/roarm_ws_em0/install/roarm_web_app:/home/orin/roarm_ws_em0/install/ros2web_app:/home/orin/roarm_ws_em0/install/ros2web:/home/orin/roarm_ws_em0/install/ros2web_interfaces:/home/orin/roarm_ws_em0/install/roarm_moveit_ikfast_plugins:/home/orin/roarm_ws_em0/install/roarm_moveit_cmd:/home/orin/roarm_ws_em0/install/roarm_moveit:/home/orin/roarm_ws_em0/install/roarm_driver:/home/orin/roarm_ws_em0/install/roarm_description:/home/orin/roarm_ws_em0/install/moveit_servo:/home/orin/roarm_ws_em0/install/launch_api:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'fi_FI.UTF-8'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'fi_FI.UTF-8'), ('LC_IDENTIFICATION', 'fi_FI.UTF-8'), ('PWD', '/home/orin/AUWO-testbed/build/robot_slam_rtab'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '10.0.0.130 49018 10.0.0.3 22'), ('XDG_DATA_DIRS', '/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/orin/roarm_ws_em0/install/ros2web_widgets/lib/python3.10/site-packages:/home/orin/roarm_ws_em0/install/ros2web_example_py/lib/python3.10/site-packages:/home/orin/roarm_ws_em0/install/roarm_web_app/lib/python3.10/site-packages:/home/orin/roarm_ws_em0/install/ros2web_app/lib/python3.10/site-packages:/home/orin/roarm_ws_em0/install/ros2web/lib/python3.10/site-packages:/home/orin/roarm_ws_em0/install/ros2web_interfaces/local/lib/python3.10/dist-packages:/home/orin/roarm_ws_em0/install/roarm_moveit/local/lib/python3.10/dist-packages:/home/orin/roarm_ws_em0/install/roarm_driver/lib/python3.10/site-packages:/home/orin/roarm_ws_em0/install/launch_api/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'fi_FI.UTF-8'), ('LC_PAPER', 'fi_FI.UTF-8'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/orin/AUWO-testbed/install/robot_slam_rtabmap:/home/orin/roarm_ws_em0/install/ros2web_interfaces:/home/orin/roarm_ws_em0/install/roarm_moveit_ikfast_plugins:/home/orin/roarm_ws_em0/install/roarm_moveit_cmd:/home/orin/roarm_ws_em0/install/roarm_moveit:/home/orin/roarm_ws_em0/install/roarm_description:/home/orin/roarm_ws_em0/install/moveit_servo:/home/orin/roarm_ws_em0/install/ros2web_widgets:/home/orin/roarm_ws_em0/install/ros2web_example_py:/home/orin/roarm_ws_em0/install/roarm_web_app:/home/orin/roarm_ws_em0/install/ros2web_app:/home/orin/roarm_ws_em0/install/ros2web:/home/orin/roarm_ws_em0/install/roarm_driver:/home/orin/roarm_ws_em0/install/launch_api:/opt/ros/humble')]), 'shell': False}
+[0.099604] (-) TimerEvent: {}
+[0.121997] (robot_slam_rtab) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[0.199949] (-) TimerEvent: {}
+[0.230717] (robot_slam_rtab) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[0.253487] (robot_slam_rtab) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.300158] (-) TimerEvent: {}
+[0.401174] (-) TimerEvent: {}
+[0.420259] (robot_slam_rtab) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.445837] (robot_slam_rtab) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[0.446958] (robot_slam_rtab) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.448593] (robot_slam_rtab) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.460435] (robot_slam_rtab) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.501382] (-) TimerEvent: {}
+[0.602346] (-) TimerEvent: {}
+[0.636791] (robot_slam_rtab) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.662535] (robot_slam_rtab) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[0.663750] (robot_slam_rtab) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.665603] (robot_slam_rtab) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.683297] (robot_slam_rtab) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.702393] (-) TimerEvent: {}
+[0.803092] (-) TimerEvent: {}
+[0.904067] (-) TimerEvent: {}
+[1.005324] (-) TimerEvent: {}
+[1.056203] (robot_slam_rtab) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter \n'}
+[1.105457] (-) TimerEvent: {}
+[1.206336] (-) TimerEvent: {}
+[1.307066] (-) TimerEvent: {}
+[1.333754] (robot_slam_rtab) StdoutLine: {'line': b'-- Found rclcpp: 16.0.15 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[1.407223] (-) TimerEvent: {}
+[1.501438] (robot_slam_rtab) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[1.507306] (-) TimerEvent: {}
+[1.522651] (robot_slam_rtab) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[1.557408] (robot_slam_rtab) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[1.600786] (robot_slam_rtab) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[1.607403] (-) TimerEvent: {}
+[1.656477] (robot_slam_rtab) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[1.707512] (-) TimerEvent: {}
+[1.808216] (-) TimerEvent: {}
+[1.816730] (robot_slam_rtab) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[1.829918] (robot_slam_rtab) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.9 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[1.908347] (-) TimerEvent: {}
+[2.009500] (-) TimerEvent: {}
+[2.060891] (robot_slam_rtab) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/aarch64-linux-gnu/libcrypto.so (found version "3.0.2")  \n'}
+[2.109674] (-) TimerEvent: {}
+[2.147596] (robot_slam_rtab) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/humble/include  \n'}
+[2.209852] (-) TimerEvent: {}
+[2.237712] (robot_slam_rtab) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[2.272583] (robot_slam_rtab) StdoutLine: {'line': b'-- Looking for pthread.h\n'}
+[2.310160] (-) TimerEvent: {}
+[2.411228] (-) TimerEvent: {}
+[2.466417] (robot_slam_rtab) StdoutLine: {'line': b'-- Looking for pthread.h - found\n'}
+[2.468150] (robot_slam_rtab) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n'}
+[2.511483] (-) TimerEvent: {}
+[2.612556] (-) TimerEvent: {}
+[2.643001] (robot_slam_rtab) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success\n'}
+[2.645382] (robot_slam_rtab) StdoutLine: {'line': b'-- Found Threads: TRUE  \n'}
+[2.713241] (-) TimerEvent: {}
+[2.815178] (-) TimerEvent: {}
+[2.880021] (robot_slam_rtab) StdoutLine: {'line': b'-- Found rtabmap_ros: 0.22.1 (/opt/ros/humble/share/rtabmap_ros/cmake)\n'}
+[2.887956] (robot_slam_rtab) StdoutLine: {'line': b'-- Found rtabmap_slam: 0.22.1 (/opt/ros/humble/share/rtabmap_slam/cmake)\n'}
+[2.915297] (-) TimerEvent: {}
+[3.015943] (-) TimerEvent: {}
+[3.116675] (-) TimerEvent: {}
+[3.217599] (-) TimerEvent: {}
+[3.318435] (-) TimerEvent: {}
+[3.419257] (-) TimerEvent: {}
+[3.519991] (-) TimerEvent: {}
+[3.620726] (-) TimerEvent: {}
+[3.721566] (-) TimerEvent: {}
+[3.822480] (-) TimerEvent: {}
+[3.923099] (-) TimerEvent: {}
+[4.016523] (robot_slam_rtab) StdoutLine: {'line': b'-- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)\n'}
+[4.019961] (robot_slam_rtab) StdoutLine: {'line': b'-- Found Eigen3: TRUE (found version "3.4.0") \n'}
+[4.020264] (robot_slam_rtab) StdoutLine: {'line': b'-- Ensuring Eigen3 include directory is part of orocos-kdl CMake target\n'}
+[4.023156] (-) TimerEvent: {}
+[4.123611] (-) TimerEvent: {}
+[4.130262] (robot_slam_rtab) StdoutLine: {'line': b"-- Checking for module 'eigen3'\n"}
+[4.155864] (robot_slam_rtab) StdoutLine: {'line': b'--   Found eigen3, version 3.4.0\n'}
+[4.224274] (-) TimerEvent: {}
+[4.238463] (robot_slam_rtab) StdoutLine: {'line': b'-- Found Eigen: /usr/include/eigen3 (Required is at least version "3.1") \n'}
+[4.239910] (robot_slam_rtab) StdoutLine: {'line': b'-- Eigen found (include: /usr/include/eigen3, version: 3.4.0)\n'}
+[4.324691] (-) TimerEvent: {}
+[4.381847] (robot_slam_rtab) StdoutLine: {'line': b"-- Checking for module 'flann'\n"}
+[4.413406] (robot_slam_rtab) StdoutLine: {'line': b'--   Found flann, version 1.9.1\n'}
+[4.424739] (-) TimerEvent: {}
+[4.526061] (-) TimerEvent: {}
+[4.535315] (robot_slam_rtab) StdoutLine: {'line': b'-- Found FLANN: /usr/lib/aarch64-linux-gnu/libflann_cpp.so  \n'}
+[4.541784] (robot_slam_rtab) StdoutLine: {'line': b'-- FLANN found (include: /usr/include, lib: /usr/lib/aarch64-linux-gnu/libflann_cpp.so)\n'}
+[4.626482] (-) TimerEvent: {}
+[4.728470] (-) TimerEvent: {}
+[4.829451] (-) TimerEvent: {}
+[4.930279] (-) TimerEvent: {}
+[5.032228] (-) TimerEvent: {}
+[5.134295] (-) TimerEvent: {}
+[5.235824] (-) TimerEvent: {}
+[5.337832] (-) TimerEvent: {}
+[5.439046] (-) TimerEvent: {}
+[5.541444] (-) TimerEvent: {}
+[5.642223] (-) TimerEvent: {}
+[5.743733] (-) TimerEvent: {}
+[5.845642] (-) TimerEvent: {}
+[5.947065] (-) TimerEvent: {}
+[6.048233] (-) TimerEvent: {}
+[6.149228] (-) TimerEvent: {}
+[6.250728] (-) TimerEvent: {}
+[6.353226] (-) TimerEvent: {}
+[6.455217] (-) TimerEvent: {}
+[6.556346] (-) TimerEvent: {}
+[6.657478] (-) TimerEvent: {}
+[6.759115] (-) TimerEvent: {}
+[6.861578] (-) TimerEvent: {}
+[6.963576] (-) TimerEvent: {}
+[7.066147] (-) TimerEvent: {}
+[7.168009] (-) TimerEvent: {}
+[7.268404] (-) TimerEvent: {}
+[7.369090] (-) TimerEvent: {}
+[7.470450] (-) TimerEvent: {}
+[7.571539] (-) TimerEvent: {}
+[7.588882] (robot_slam_rtab) StdoutLine: {'line': b"-- Checking for module 'libusb-1.0'\n"}
+[7.628307] (robot_slam_rtab) StdoutLine: {'line': b'--   Found libusb-1.0, version 1.0.25\n'}
+[7.671984] (-) TimerEvent: {}
+[7.719683] (robot_slam_rtab) StdoutLine: {'line': b'-- Found libusb: /usr/lib/aarch64-linux-gnu/libusb-1.0.so  \n'}
+[7.727725] (robot_slam_rtab) StdoutLine: {'line': b'-- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)\n'}
+[7.772345] (-) TimerEvent: {}
+[7.873945] (-) TimerEvent: {}
+[7.884926] (robot_slam_rtab) StdoutLine: {'line': b'-- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/aarch64-linux-gnu/libOpenNI2.so;libusb::libusb)\n'}
+[7.974231] (-) TimerEvent: {}
+[8.074937] (-) TimerEvent: {}
+[8.172645] (robot_slam_rtab) StdoutLine: {'line': b'-- Eigen found (include: /usr/include/eigen3, version: 3.4.0)\n'}
+[8.175007] (-) TimerEvent: {}
+[8.182090] (robot_slam_rtab) StdoutLine: {'line': b'-- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)\n'}
+[8.191300] (robot_slam_rtab) StdoutLine: {'line': b'-- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/aarch64-linux-gnu/libOpenNI2.so;libusb::libusb)\n'}
+[8.275179] (-) TimerEvent: {}
+[8.375795] (-) TimerEvent: {}
+[8.436085] (robot_slam_rtab) StdoutLine: {'line': b'-- Found Qhull version 8.0.2\n'}
+[8.475889] (-) TimerEvent: {}
+[8.576380] (-) TimerEvent: {}
+[8.676987] (-) TimerEvent: {}
+[8.680702] (robot_slam_rtab) StdoutLine: {'line': b'-- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)\n'}
+[8.777153] (-) TimerEvent: {}
+[8.877730] (-) TimerEvent: {}
+[8.919542] (robot_slam_rtab) StdoutLine: {'line': b'-- Found PCL_COMMON: /usr/lib/aarch64-linux-gnu/libpcl_common.so  \n'}
+[8.920752] (robot_slam_rtab) StdoutLine: {'line': b'-- Found PCL_KDTREE: /usr/lib/aarch64-linux-gnu/libpcl_kdtree.so  \n'}
+[8.922208] (robot_slam_rtab) StdoutLine: {'line': b'-- Found PCL_OCTREE: /usr/lib/aarch64-linux-gnu/libpcl_octree.so  \n'}
+[8.923596] (robot_slam_rtab) StdoutLine: {'line': b'-- Found PCL_SEARCH: /usr/lib/aarch64-linux-gnu/libpcl_search.so  \n'}
+[8.925106] (robot_slam_rtab) StdoutLine: {'line': b'-- Found PCL_SAMPLE_CONSENSUS: /usr/lib/aarch64-linux-gnu/libpcl_sample_consensus.so  \n'}
+[8.926572] (robot_slam_rtab) StdoutLine: {'line': b'-- Found PCL_FILTERS: /usr/lib/aarch64-linux-gnu/libpcl_filters.so  \n'}
+[8.927250] (robot_slam_rtab) StdoutLine: {'line': b'-- Found PCL_2D: /usr/include/pcl-1.12  \n'}
+[8.927908] (robot_slam_rtab) StdoutLine: {'line': b'-- Found PCL_GEOMETRY: /usr/include/pcl-1.12  \n'}
+[8.929337] (robot_slam_rtab) StdoutLine: {'line': b'-- Found PCL_IO: /usr/lib/aarch64-linux-gnu/libpcl_io.so  \n'}
+[8.930917] (robot_slam_rtab) StdoutLine: {'line': b'-- Found PCL_FEATURES: /usr/lib/aarch64-linux-gnu/libpcl_features.so  \n'}
+[8.932509] (robot_slam_rtab) StdoutLine: {'line': b'-- Found PCL_ML: /usr/lib/aarch64-linux-gnu/libpcl_ml.so  \n'}
+[8.933941] (robot_slam_rtab) StdoutLine: {'line': b'-- Found PCL_SEGMENTATION: /usr/lib/aarch64-linux-gnu/libpcl_segmentation.so  \n'}
+[8.935576] (robot_slam_rtab) StdoutLine: {'line': b'-- Found PCL_VISUALIZATION: /usr/lib/aarch64-linux-gnu/libpcl_visualization.so  \n'}
+[8.937255] (robot_slam_rtab) StdoutLine: {'line': b'-- Found PCL_SURFACE: /usr/lib/aarch64-linux-gnu/libpcl_surface.so  \n'}
+[8.938798] (robot_slam_rtab) StdoutLine: {'line': b'-- Found PCL_REGISTRATION: /usr/lib/aarch64-linux-gnu/libpcl_registration.so  \n'}
+[8.940389] (robot_slam_rtab) StdoutLine: {'line': b'-- Found PCL_KEYPOINTS: /usr/lib/aarch64-linux-gnu/libpcl_keypoints.so  \n'}
+[8.941948] (robot_slam_rtab) StdoutLine: {'line': b'-- Found PCL_TRACKING: /usr/lib/aarch64-linux-gnu/libpcl_tracking.so  \n'}
+[8.943447] (robot_slam_rtab) StdoutLine: {'line': b'-- Found PCL_RECOGNITION: /usr/lib/aarch64-linux-gnu/libpcl_recognition.so  \n'}
+[8.945466] (robot_slam_rtab) StdoutLine: {'line': b'-- Found PCL_STEREO: /usr/lib/aarch64-linux-gnu/libpcl_stereo.so  \n'}
+[8.947035] (robot_slam_rtab) StdoutLine: {'line': b'-- Found PCL_APPS: /usr/lib/aarch64-linux-gnu/libpcl_apps.so  \n'}
+[8.948420] (robot_slam_rtab) StdoutLine: {'line': b'-- Found PCL_IN_HAND_SCANNER: /usr/include/pcl-1.12  \n'}
+[8.949020] (robot_slam_rtab) StdoutLine: {'line': b'-- Found PCL_MODELER: /usr/include/pcl-1.12  \n'}
+[8.951722] (robot_slam_rtab) StdoutLine: {'line': b'-- Found PCL_POINT_CLOUD_EDITOR: /usr/include/pcl-1.12  \n'}
+[8.953400] (robot_slam_rtab) StdoutLine: {'line': b'-- Found PCL_OUTOFCORE: /usr/lib/aarch64-linux-gnu/libpcl_outofcore.so  \n'}
+[8.954951] (robot_slam_rtab) StdoutLine: {'line': b'-- Found PCL_PEOPLE: /usr/lib/aarch64-linux-gnu/libpcl_people.so  \n'}
+[8.977822] (-) TimerEvent: {}
+[9.055273] (robot_slam_rtab) StderrLine: {'line': b'\x1b[33mCMake Warning (dev) at /usr/share/cmake-3.22/Modules/CMakeFindDependencyMacro.cmake:47 (find_package):\n'}
+[9.055632] (robot_slam_rtab) StderrLine: {'line': b'  Policy CMP0074 is not set: find_package uses <PackageName>_ROOT variables.\n'}
+[9.055802] (robot_slam_rtab) StderrLine: {'line': b'  Run "cmake --help-policy CMP0074" for policy details.  Use the cmake_policy\n'}
+[9.055927] (robot_slam_rtab) StderrLine: {'line': b'  command to set the policy and suppress this warning.\n'}
+[9.056045] (robot_slam_rtab) StderrLine: {'line': b'\n'}
+[9.056157] (robot_slam_rtab) StderrLine: {'line': b'  CMake variable PCL_ROOT is set to:\n'}
+[9.056270] (robot_slam_rtab) StderrLine: {'line': b'\n'}
+[9.056380] (robot_slam_rtab) StderrLine: {'line': b'    /usr\n'}
+[9.056497] (robot_slam_rtab) StderrLine: {'line': b'\n'}
+[9.056604] (robot_slam_rtab) StderrLine: {'line': b'  For compatibility, CMake is ignoring the variable.\n'}
+[9.056712] (robot_slam_rtab) StderrLine: {'line': b'Call Stack (most recent call first):\n'}
+[9.056819] (robot_slam_rtab) StderrLine: {'line': b'  /opt/ros/humble/lib/aarch64-linux-gnu/rtabmap-0.22/RTABMapConfig.cmake:7 (find_dependency)\n'}
+[9.056927] (robot_slam_rtab) StderrLine: {'line': b'  /opt/ros/humble/share/rtabmap_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)\n'}
+[9.057035] (robot_slam_rtab) StderrLine: {'line': b'  /opt/ros/humble/share/rtabmap_conversions/cmake/rtabmap_conversionsConfig.cmake:41 (include)\n'}
+[9.057140] (robot_slam_rtab) StderrLine: {'line': b'  /opt/ros/humble/share/rtabmap_util/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)\n'}
+[9.057245] (robot_slam_rtab) StderrLine: {'line': b'  /opt/ros/humble/share/rtabmap_util/cmake/rtabmap_utilConfig.cmake:41 (include)\n'}
+[9.057357] (robot_slam_rtab) StderrLine: {'line': b'  /opt/ros/humble/share/rtabmap_slam/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)\n'}
+[9.057467] (robot_slam_rtab) StderrLine: {'line': b'  /opt/ros/humble/share/rtabmap_slam/cmake/rtabmap_slamConfig.cmake:41 (include)\n'}
+[9.057571] (robot_slam_rtab) StderrLine: {'line': b'  CMakeLists.txt:12 (find_package)\n'}
+[9.057676] (robot_slam_rtab) StderrLine: {'line': b'This warning is for project developers.  Use -Wno-dev to suppress it.\n'}
+[9.057806] (robot_slam_rtab) StderrLine: {'line': b'\x1b[0m\n'}
+[9.077938] (-) TimerEvent: {}
+[9.178561] (-) TimerEvent: {}
+[9.279247] (-) TimerEvent: {}
+[9.380083] (-) TimerEvent: {}
+[9.392989] (robot_slam_rtab) StdoutLine: {'line': b'-- Found rtabmap_viz: 0.22.1 (/opt/ros/humble/share/rtabmap_viz/cmake)\n'}
+[9.401649] (robot_slam_rtab) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.12.14 (/opt/ros/humble/share/ament_lint_auto/cmake)\n'}
+[9.480227] (-) TimerEvent: {}
+[9.532786] (robot_slam_rtab) StderrLine: {'line': b'\x1b[31mCMake Error at /opt/ros/humble/share/ament_cmake_core/cmake/core/ament_package_xml.cmake:53 (message):\n'}
+[9.545014] (robot_slam_rtab) StderrLine: {'line': b"  ament_package_xml() package name 'robot_slam_rtab' in '/package.xml' does\n"}
+[9.545368] (robot_slam_rtab) StderrLine: {'line': b"  not match current PROJECT_NAME 'excavator_slam'.  You must call project()\n"}
+[9.545651] (robot_slam_rtab) StderrLine: {'line': b'  with the same package name before.\n'}
+[9.545919] (robot_slam_rtab) StderrLine: {'line': b'Call Stack (most recent call first):\n'}
+[9.546207] (robot_slam_rtab) StderrLine: {'line': b'  /opt/ros/humble/share/ament_lint_auto/cmake/ament_lint_auto_find_test_dependencies.cmake:31 (ament_package_xml)\n'}
+[9.546485] (robot_slam_rtab) StderrLine: {'line': b'  CMakeLists.txt:30 (ament_lint_auto_find_test_dependencies)\n'}
+[9.546747] (robot_slam_rtab) StderrLine: {'line': b'\n'}
+[9.546991] (robot_slam_rtab) StderrLine: {'line': b'\x1b[0m\n'}
+[9.547241] (robot_slam_rtab) StdoutLine: {'line': b'-- Configuring incomplete, errors occurred!\n'}
+[9.547593] (robot_slam_rtab) StdoutLine: {'line': b'See also "/home/orin/AUWO-testbed/build/robot_slam_rtab/CMakeFiles/CMakeOutput.log".\n'}
+[9.580817] (-) TimerEvent: {}
+[9.644579] (robot_slam_rtab) CommandEnded: {'returncode': 1}
+[9.680892] (-) TimerEvent: {}
+[9.717147] (robot_slam_rtab) JobEnded: {'identifier': 'robot_slam_rtab', 'rc': 1}
+[9.720993] (-) EventReactorShutdown: {}

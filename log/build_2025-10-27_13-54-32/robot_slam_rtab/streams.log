@@ -1,0 +1,82 @@
+[0.019s] Invoking command in '/home/orin/AUWO-testbed/build/robot_slam_rtab': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/orin/roarm_ws_em0/install/ros2web_widgets:/home/orin/roarm_ws_em0/install/ros2web_example_py:/home/orin/roarm_ws_em0/install/roarm_web_app:/home/orin/roarm_ws_em0/install/ros2web_app:/home/orin/roarm_ws_em0/install/ros2web:/home/orin/roarm_ws_em0/install/roarm_driver:/home/orin/roarm_ws_em0/install/launch_api:/opt/ros/humble /usr/bin/cmake /home/orin/AUWO-testbed/src/robot_slam_rtabmap -DCMAKE_INSTALL_PREFIX=/home/orin/AUWO-testbed/install/robot_slam_rtab
+[0.045s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.327s] -- Found rclcpp: 16.0.15 (/opt/ros/humble/share/rclcpp/cmake)
+[0.406s] -- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.411s] -- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.421s] -- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.437s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.457s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.511s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.513s] -- Found rmw_fastrtps_cpp: 6.2.9 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[0.693s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.773s] -- Found rtabmap_ros: 0.22.1 (/opt/ros/humble/share/rtabmap_ros/cmake)
+[0.773s] -- Found rtabmap_slam: 0.22.1 (/opt/ros/humble/share/rtabmap_slam/cmake)
+[1.283s] -- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)
+[1.285s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[1.347s] -- Eigen found (include: /usr/include/eigen3, version: 3.4.0)
+[1.400s] -- FLANN found (include: /usr/include, lib: /usr/lib/aarch64-linux-gnu/libflann_cpp.so)
+[1.946s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[1.955s] -- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/aarch64-linux-gnu/libOpenNI2.so;libusb::libusb)
+[2.207s] -- Eigen found (include: /usr/include/eigen3, version: 3.4.0)
+[2.217s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[2.226s] -- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/aarch64-linux-gnu/libOpenNI2.so;libusb::libusb)
+[2.462s] -- Found Qhull version 8.0.2
+[2.709s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[3.021s] [33mCMake Warning (dev) at /usr/share/cmake-3.22/Modules/CMakeFindDependencyMacro.cmake:47 (find_package):
+[3.021s]   Policy CMP0074 is not set: find_package uses <PackageName>_ROOT variables.
+[3.021s]   Run "cmake --help-policy CMP0074" for policy details.  Use the cmake_policy
+[3.021s]   command to set the policy and suppress this warning.
+[3.022s] 
+[3.022s]   CMake variable PCL_ROOT is set to:
+[3.022s] 
+[3.022s]     /usr
+[3.022s] 
+[3.022s]   For compatibility, CMake is ignoring the variable.
+[3.022s] Call Stack (most recent call first):
+[3.022s]   /opt/ros/humble/lib/aarch64-linux-gnu/rtabmap-0.22/RTABMapConfig.cmake:7 (find_dependency)
+[3.022s]   /opt/ros/humble/share/rtabmap_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+[3.023s]   /opt/ros/humble/share/rtabmap_conversions/cmake/rtabmap_conversionsConfig.cmake:41 (include)
+[3.023s]   /opt/ros/humble/share/rtabmap_util/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+[3.023s]   /opt/ros/humble/share/rtabmap_util/cmake/rtabmap_utilConfig.cmake:41 (include)
+[3.023s]   /opt/ros/humble/share/rtabmap_slam/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+[3.023s]   /opt/ros/humble/share/rtabmap_slam/cmake/rtabmap_slamConfig.cmake:41 (include)
+[3.023s]   CMakeLists.txt:12 (find_package)
+[3.023s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[3.023s] [0m
+[3.171s] -- Found rtabmap_viz: 0.22.1 (/opt/ros/humble/share/rtabmap_viz/cmake)
+[3.173s] -- Found ament_lint_auto: 0.12.14 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[3.386s] -- Added test 'copyright' to check source files copyright and LICENSE
+[3.395s] -- Added test 'flake8' to check Python code syntax and style conventions
+[3.397s] -- Added test 'lint_cmake' to check CMake code style
+[3.398s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[3.402s] -- Added test 'xmllint' to check XML markup files
+[3.406s] -- Configuring done
+[3.432s] -- Generating done
+[3.439s] -- Build files have been written to: /home/orin/AUWO-testbed/build/robot_slam_rtab
+[3.485s] Invoked command in '/home/orin/AUWO-testbed/build/robot_slam_rtab' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/orin/roarm_ws_em0/install/ros2web_widgets:/home/orin/roarm_ws_em0/install/ros2web_example_py:/home/orin/roarm_ws_em0/install/roarm_web_app:/home/orin/roarm_ws_em0/install/ros2web_app:/home/orin/roarm_ws_em0/install/ros2web:/home/orin/roarm_ws_em0/install/roarm_driver:/home/orin/roarm_ws_em0/install/launch_api:/opt/ros/humble /usr/bin/cmake /home/orin/AUWO-testbed/src/robot_slam_rtabmap -DCMAKE_INSTALL_PREFIX=/home/orin/AUWO-testbed/install/robot_slam_rtab
+[3.491s] Invoking command in '/home/orin/AUWO-testbed/build/robot_slam_rtab': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/orin/roarm_ws_em0/install/ros2web_widgets:/home/orin/roarm_ws_em0/install/ros2web_example_py:/home/orin/roarm_ws_em0/install/roarm_web_app:/home/orin/roarm_ws_em0/install/ros2web_app:/home/orin/roarm_ws_em0/install/ros2web:/home/orin/roarm_ws_em0/install/roarm_driver:/home/orin/roarm_ws_em0/install/launch_api:/opt/ros/humble /usr/bin/cmake --build /home/orin/AUWO-testbed/build/robot_slam_rtab -- -j6 -l6
+[3.614s] Invoked command in '/home/orin/AUWO-testbed/build/robot_slam_rtab' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/orin/roarm_ws_em0/install/ros2web_widgets:/home/orin/roarm_ws_em0/install/ros2web_example_py:/home/orin/roarm_ws_em0/install/roarm_web_app:/home/orin/roarm_ws_em0/install/ros2web_app:/home/orin/roarm_ws_em0/install/ros2web:/home/orin/roarm_ws_em0/install/roarm_driver:/home/orin/roarm_ws_em0/install/launch_api:/opt/ros/humble /usr/bin/cmake --build /home/orin/AUWO-testbed/build/robot_slam_rtab -- -j6 -l6
+[3.646s] Invoking command in '/home/orin/AUWO-testbed/build/robot_slam_rtab': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/orin/roarm_ws_em0/install/ros2web_widgets:/home/orin/roarm_ws_em0/install/ros2web_example_py:/home/orin/roarm_ws_em0/install/roarm_web_app:/home/orin/roarm_ws_em0/install/ros2web_app:/home/orin/roarm_ws_em0/install/ros2web:/home/orin/roarm_ws_em0/install/roarm_driver:/home/orin/roarm_ws_em0/install/launch_api:/opt/ros/humble /usr/bin/cmake --install /home/orin/AUWO-testbed/build/robot_slam_rtab
+[3.673s] -- Install configuration: ""
+[3.674s] -- Installing: /home/orin/AUWO-testbed/install/robot_slam_rtab/share/robot_slam_rtab//launch
+[3.674s] -- Installing: /home/orin/AUWO-testbed/install/robot_slam_rtab/share/robot_slam_rtab//launch/rtbmap.launch.py
+[3.674s] -- Installing: /home/orin/AUWO-testbed/install/robot_slam_rtab/share/robot_slam_rtab//config
+[3.674s] -- Installing: /home/orin/AUWO-testbed/install/robot_slam_rtab/share/robot_slam_rtab//config/rtbmap_config.yaml
+[3.675s] -- Installing: /home/orin/AUWO-testbed/install/robot_slam_rtab/share/robot_slam_rtab//rviz
+[3.675s] -- Installing: /home/orin/AUWO-testbed/install/robot_slam_rtab/share/robot_slam_rtab//rviz/rtabmap_leo.rviz
+[3.676s] -- Installing: /home/orin/AUWO-testbed/install/robot_slam_rtab/share/ament_index/resource_index/package_run_dependencies/robot_slam_rtab
+[3.676s] -- Installing: /home/orin/AUWO-testbed/install/robot_slam_rtab/share/ament_index/resource_index/parent_prefix_path/robot_slam_rtab
+[3.677s] -- Installing: /home/orin/AUWO-testbed/install/robot_slam_rtab/share/robot_slam_rtab/environment/ament_prefix_path.sh
+[3.677s] -- Installing: /home/orin/AUWO-testbed/install/robot_slam_rtab/share/robot_slam_rtab/environment/ament_prefix_path.dsv
+[3.677s] -- Installing: /home/orin/AUWO-testbed/install/robot_slam_rtab/share/robot_slam_rtab/environment/path.sh
+[3.678s] -- Installing: /home/orin/AUWO-testbed/install/robot_slam_rtab/share/robot_slam_rtab/environment/path.dsv
+[3.678s] -- Installing: /home/orin/AUWO-testbed/install/robot_slam_rtab/share/robot_slam_rtab/local_setup.bash
+[3.678s] -- Installing: /home/orin/AUWO-testbed/install/robot_slam_rtab/share/robot_slam_rtab/local_setup.sh
+[3.679s] -- Installing: /home/orin/AUWO-testbed/install/robot_slam_rtab/share/robot_slam_rtab/local_setup.zsh
+[3.679s] -- Installing: /home/orin/AUWO-testbed/install/robot_slam_rtab/share/robot_slam_rtab/local_setup.dsv
+[3.679s] -- Installing: /home/orin/AUWO-testbed/install/robot_slam_rtab/share/robot_slam_rtab/package.dsv
+[3.680s] -- Installing: /home/orin/AUWO-testbed/install/robot_slam_rtab/share/ament_index/resource_index/packages/robot_slam_rtab
+[3.680s] -- Installing: /home/orin/AUWO-testbed/install/robot_slam_rtab/share/robot_slam_rtab/cmake/robot_slam_rtabConfig.cmake
+[3.680s] -- Installing: /home/orin/AUWO-testbed/install/robot_slam_rtab/share/robot_slam_rtab/cmake/robot_slam_rtabConfig-version.cmake
+[3.680s] -- Installing: /home/orin/AUWO-testbed/install/robot_slam_rtab/share/robot_slam_rtab/package.xml
+[3.684s] Invoked command in '/home/orin/AUWO-testbed/build/robot_slam_rtab' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/orin/roarm_ws_em0/install/ros2web_widgets:/home/orin/roarm_ws_em0/install/ros2web_example_py:/home/orin/roarm_ws_em0/install/roarm_web_app:/home/orin/roarm_ws_em0/install/ros2web_app:/home/orin/roarm_ws_em0/install/ros2web:/home/orin/roarm_ws_em0/install/roarm_driver:/home/orin/roarm_ws_em0/install/launch_api:/opt/ros/humble /usr/bin/cmake --install /home/orin/AUWO-testbed/build/robot_slam_rtab

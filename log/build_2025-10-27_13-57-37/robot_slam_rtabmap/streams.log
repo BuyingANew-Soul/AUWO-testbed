@@ -1,0 +1,122 @@
+[0.020s] Invoking command in '/home/orin/AUWO-testbed/build/robot_slam_rtabmap': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/orin/roarm_ws_em0/install/ros2web_widgets:/home/orin/roarm_ws_em0/install/ros2web_example_py:/home/orin/roarm_ws_em0/install/roarm_web_app:/home/orin/roarm_ws_em0/install/ros2web_app:/home/orin/roarm_ws_em0/install/ros2web:/home/orin/roarm_ws_em0/install/roarm_driver:/home/orin/roarm_ws_em0/install/launch_api:/opt/ros/humble /usr/bin/cmake --build /home/orin/AUWO-testbed/build/robot_slam_rtabmap -- -j6 -l6
+[0.060s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.376s] -- Found rclcpp: 16.0.15 (/opt/ros/humble/share/rclcpp/cmake)
+[0.495s] -- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.509s] -- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.527s] -- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.553s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.588s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.685s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.692s] -- Found rmw_fastrtps_cpp: 6.2.9 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[0.851s] -- Found OpenSSL: /usr/lib/aarch64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[0.908s] -- Found FastRTPS: /opt/ros/humble/include  
+[0.980s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.003s] -- Looking for pthread.h
+[1.143s] -- Looking for pthread.h - found
+[1.144s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[1.320s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[1.323s] -- Found Threads: TRUE  
+[1.459s] -- Found rtabmap_ros: 0.22.1 (/opt/ros/humble/share/rtabmap_ros/cmake)
+[1.464s] -- Found rtabmap_slam: 0.22.1 (/opt/ros/humble/share/rtabmap_slam/cmake)
+[2.203s] -- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)
+[2.205s] -- Found Eigen3: TRUE (found version "3.4.0") 
+[2.206s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[2.286s] -- Checking for module 'eigen3'
+[2.303s] --   Found eigen3, version 3.4.0
+[2.355s] -- Found Eigen: /usr/include/eigen3 (Required is at least version "3.1") 
+[2.355s] -- Eigen found (include: /usr/include/eigen3, version: 3.4.0)
+[2.434s] -- Checking for module 'flann'
+[2.454s] --   Found flann, version 1.9.1
+[2.551s] -- Found FLANN: /usr/lib/aarch64-linux-gnu/libflann_cpp.so  
+[2.552s] -- FLANN found (include: /usr/include, lib: /usr/lib/aarch64-linux-gnu/libflann_cpp.so)
+[4.767s] -- Checking for module 'libusb-1.0'
+[4.806s] --   Found libusb-1.0, version 1.0.25
+[4.904s] -- Found libusb: /usr/lib/aarch64-linux-gnu/libusb-1.0.so  
+[4.908s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[5.060s] -- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/aarch64-linux-gnu/libOpenNI2.so;libusb::libusb)
+[5.343s] -- Eigen found (include: /usr/include/eigen3, version: 3.4.0)
+[5.352s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[5.361s] -- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/aarch64-linux-gnu/libOpenNI2.so;libusb::libusb)
+[5.603s] -- Found Qhull version 8.0.2
+[5.851s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[6.090s] -- Found PCL_COMMON: /usr/lib/aarch64-linux-gnu/libpcl_common.so  
+[6.091s] -- Found PCL_KDTREE: /usr/lib/aarch64-linux-gnu/libpcl_kdtree.so  
+[6.093s] -- Found PCL_OCTREE: /usr/lib/aarch64-linux-gnu/libpcl_octree.so  
+[6.094s] -- Found PCL_SEARCH: /usr/lib/aarch64-linux-gnu/libpcl_search.so  
+[6.095s] -- Found PCL_SAMPLE_CONSENSUS: /usr/lib/aarch64-linux-gnu/libpcl_sample_consensus.so  
+[6.097s] -- Found PCL_FILTERS: /usr/lib/aarch64-linux-gnu/libpcl_filters.so  
+[6.097s] -- Found PCL_2D: /usr/include/pcl-1.12  
+[6.098s] -- Found PCL_GEOMETRY: /usr/include/pcl-1.12  
+[6.099s] -- Found PCL_IO: /usr/lib/aarch64-linux-gnu/libpcl_io.so  
+[6.101s] -- Found PCL_FEATURES: /usr/lib/aarch64-linux-gnu/libpcl_features.so  
+[6.103s] -- Found PCL_ML: /usr/lib/aarch64-linux-gnu/libpcl_ml.so  
+[6.104s] -- Found PCL_SEGMENTATION: /usr/lib/aarch64-linux-gnu/libpcl_segmentation.so  
+[6.106s] -- Found PCL_VISUALIZATION: /usr/lib/aarch64-linux-gnu/libpcl_visualization.so  
+[6.107s] -- Found PCL_SURFACE: /usr/lib/aarch64-linux-gnu/libpcl_surface.so  
+[6.109s] -- Found PCL_REGISTRATION: /usr/lib/aarch64-linux-gnu/libpcl_registration.so  
+[6.110s] -- Found PCL_KEYPOINTS: /usr/lib/aarch64-linux-gnu/libpcl_keypoints.so  
+[6.112s] -- Found PCL_TRACKING: /usr/lib/aarch64-linux-gnu/libpcl_tracking.so  
+[6.113s] -- Found PCL_RECOGNITION: /usr/lib/aarch64-linux-gnu/libpcl_recognition.so  
+[6.115s] -- Found PCL_STEREO: /usr/lib/aarch64-linux-gnu/libpcl_stereo.so  
+[6.116s] -- Found PCL_APPS: /usr/lib/aarch64-linux-gnu/libpcl_apps.so  
+[6.117s] -- Found PCL_IN_HAND_SCANNER: /usr/include/pcl-1.12  
+[6.118s] -- Found PCL_MODELER: /usr/include/pcl-1.12  
+[6.119s] -- Found PCL_POINT_CLOUD_EDITOR: /usr/include/pcl-1.12  
+[6.120s] -- Found PCL_OUTOFCORE: /usr/lib/aarch64-linux-gnu/libpcl_outofcore.so  
+[6.122s] -- Found PCL_PEOPLE: /usr/lib/aarch64-linux-gnu/libpcl_people.so  
+[6.201s] [33mCMake Warning (dev) at /usr/share/cmake-3.22/Modules/CMakeFindDependencyMacro.cmake:47 (find_package):
+[6.201s]   Policy CMP0074 is not set: find_package uses <PackageName>_ROOT variables.
+[6.201s]   Run "cmake --help-policy CMP0074" for policy details.  Use the cmake_policy
+[6.201s]   command to set the policy and suppress this warning.
+[6.202s] 
+[6.202s]   CMake variable PCL_ROOT is set to:
+[6.202s] 
+[6.202s]     /usr
+[6.202s] 
+[6.202s]   For compatibility, CMake is ignoring the variable.
+[6.202s] Call Stack (most recent call first):
+[6.202s]   /opt/ros/humble/lib/aarch64-linux-gnu/rtabmap-0.22/RTABMapConfig.cmake:7 (find_dependency)
+[6.202s]   /opt/ros/humble/share/rtabmap_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+[6.203s]   /opt/ros/humble/share/rtabmap_conversions/cmake/rtabmap_conversionsConfig.cmake:41 (include)
+[6.203s]   /opt/ros/humble/share/rtabmap_util/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+[6.203s]   /opt/ros/humble/share/rtabmap_util/cmake/rtabmap_utilConfig.cmake:41 (include)
+[6.203s]   /opt/ros/humble/share/rtabmap_slam/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+[6.203s]   /opt/ros/humble/share/rtabmap_slam/cmake/rtabmap_slamConfig.cmake:41 (include)
+[6.203s]   CMakeLists.txt:12 (find_package)
+[6.203s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[6.203s] [0m
+[6.395s] -- Found rtabmap_viz: 0.22.1 (/opt/ros/humble/share/rtabmap_viz/cmake)
+[6.396s] -- Found ament_lint_auto: 0.12.14 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[6.547s] -- Added test 'copyright' to check source files copyright and LICENSE
+[6.552s] -- Added test 'flake8' to check Python code syntax and style conventions
+[6.553s] -- Added test 'lint_cmake' to check CMake code style
+[6.554s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[6.556s] -- Added test 'xmllint' to check XML markup files
+[6.558s] -- Configuring done
+[6.580s] -- Generating done
+[6.588s] -- Build files have been written to: /home/orin/AUWO-testbed/build/robot_slam_rtabmap
+[6.681s] Invoked command in '/home/orin/AUWO-testbed/build/robot_slam_rtabmap' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/orin/roarm_ws_em0/install/ros2web_widgets:/home/orin/roarm_ws_em0/install/ros2web_example_py:/home/orin/roarm_ws_em0/install/roarm_web_app:/home/orin/roarm_ws_em0/install/ros2web_app:/home/orin/roarm_ws_em0/install/ros2web:/home/orin/roarm_ws_em0/install/roarm_driver:/home/orin/roarm_ws_em0/install/launch_api:/opt/ros/humble /usr/bin/cmake --build /home/orin/AUWO-testbed/build/robot_slam_rtabmap -- -j6 -l6
+[6.713s] Invoking command in '/home/orin/AUWO-testbed/build/robot_slam_rtabmap': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/orin/roarm_ws_em0/install/ros2web_widgets:/home/orin/roarm_ws_em0/install/ros2web_example_py:/home/orin/roarm_ws_em0/install/roarm_web_app:/home/orin/roarm_ws_em0/install/ros2web_app:/home/orin/roarm_ws_em0/install/ros2web:/home/orin/roarm_ws_em0/install/roarm_driver:/home/orin/roarm_ws_em0/install/launch_api:/opt/ros/humble /usr/bin/cmake --install /home/orin/AUWO-testbed/build/robot_slam_rtabmap
+[6.737s] -- Install configuration: ""
+[6.738s] -- Installing: /home/orin/AUWO-testbed/install/robot_slam_rtabmap/share/robot_slam_rtabmap//launch
+[6.738s] -- Installing: /home/orin/AUWO-testbed/install/robot_slam_rtabmap/share/robot_slam_rtabmap//launch/rtbmap.launch.py
+[6.738s] -- Installing: /home/orin/AUWO-testbed/install/robot_slam_rtabmap/share/robot_slam_rtabmap//config
+[6.738s] -- Installing: /home/orin/AUWO-testbed/install/robot_slam_rtabmap/share/robot_slam_rtabmap//config/rtbmap_config.yaml
+[6.738s] -- Installing: /home/orin/AUWO-testbed/install/robot_slam_rtabmap/share/robot_slam_rtabmap//rviz
+[6.739s] -- Installing: /home/orin/AUWO-testbed/install/robot_slam_rtabmap/share/robot_slam_rtabmap//rviz/rtabmap_leo.rviz
+[6.739s] -- Installing: /home/orin/AUWO-testbed/install/robot_slam_rtabmap/share/ament_index/resource_index/package_run_dependencies/robot_slam_rtabmap
+[6.739s] -- Installing: /home/orin/AUWO-testbed/install/robot_slam_rtabmap/share/ament_index/resource_index/parent_prefix_path/robot_slam_rtabmap
+[6.740s] -- Up-to-date: /home/orin/AUWO-testbed/install/robot_slam_rtabmap/share/robot_slam_rtabmap/environment/ament_prefix_path.sh
+[6.740s] -- Installing: /home/orin/AUWO-testbed/install/robot_slam_rtabmap/share/robot_slam_rtabmap/environment/ament_prefix_path.dsv
+[6.740s] -- Up-to-date: /home/orin/AUWO-testbed/install/robot_slam_rtabmap/share/robot_slam_rtabmap/environment/path.sh
+[6.740s] -- Installing: /home/orin/AUWO-testbed/install/robot_slam_rtabmap/share/robot_slam_rtabmap/environment/path.dsv
+[6.741s] -- Up-to-date: /home/orin/AUWO-testbed/install/robot_slam_rtabmap/share/robot_slam_rtabmap/local_setup.bash
+[6.741s] -- Up-to-date: /home/orin/AUWO-testbed/install/robot_slam_rtabmap/share/robot_slam_rtabmap/local_setup.sh
+[6.741s] -- Up-to-date: /home/orin/AUWO-testbed/install/robot_slam_rtabmap/share/robot_slam_rtabmap/local_setup.zsh
+[6.741s] -- Installing: /home/orin/AUWO-testbed/install/robot_slam_rtabmap/share/robot_slam_rtabmap/local_setup.dsv
+[6.742s] -- Installing: /home/orin/AUWO-testbed/install/robot_slam_rtabmap/share/robot_slam_rtabmap/package.dsv
+[6.742s] -- Up-to-date: /home/orin/AUWO-testbed/install/robot_slam_rtabmap/share/ament_index/resource_index/packages/robot_slam_rtabmap
+[6.742s] -- Installing: /home/orin/AUWO-testbed/install/robot_slam_rtabmap/share/robot_slam_rtabmap/cmake/robot_slam_rtabmapConfig.cmake
+[6.742s] -- Installing: /home/orin/AUWO-testbed/install/robot_slam_rtabmap/share/robot_slam_rtabmap/cmake/robot_slam_rtabmapConfig-version.cmake
+[6.742s] -- Installing: /home/orin/AUWO-testbed/install/robot_slam_rtabmap/share/robot_slam_rtabmap/package.xml
+[6.748s] Invoked command in '/home/orin/AUWO-testbed/build/robot_slam_rtabmap' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/orin/roarm_ws_em0/install/ros2web_widgets:/home/orin/roarm_ws_em0/install/ros2web_example_py:/home/orin/roarm_ws_em0/install/roarm_web_app:/home/orin/roarm_ws_em0/install/ros2web_app:/home/orin/roarm_ws_em0/install/ros2web:/home/orin/roarm_ws_em0/install/roarm_driver:/home/orin/roarm_ws_em0/install/launch_api:/opt/ros/humble /usr/bin/cmake --install /home/orin/AUWO-testbed/build/robot_slam_rtabmap
