@@ -89,10 +89,10 @@ rtabmap:
     Kp/DetectorStrategy: 6        # GFTT
     Kp/RoiRatios: [0.0, 0.0, 0.0, 0.0]
     
-    Bayes/FullPredictionUpdate: false
+    #Bayes/FullPredictionUpdate: 'false'
     
     # ============ 3D MAPPING ============
-    Grid/3D: true
+    Grid/3D: 'true'
     Grid/RayTracing: true
     Grid/CellSize: 0.05           # 5cm cells
     Grid/MaxObstacleHeight: 2.0   # Max obstacle height

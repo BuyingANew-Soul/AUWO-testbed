@@ -1,12 +1,10 @@
 from launch import LaunchDescription
 import launch
-from launch.actions import DeclareLaunchArgument, SetEnvironmentVariable
+from launch.actions import DeclareLaunchArgument
 from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
 from ament_index_python.packages import get_package_share_directory
 import os
-
-
 
 def generate_launch_description():
     
@@ -15,30 +13,76 @@ def generate_launch_description():
     # Parameters
     use_sim_time = LaunchConfiguration('use_sim_time')
     localization = LaunchConfiguration('localization')
-    parameters=[{
-          'frame_id':'camera_link',
-          'subscribe_depth':True,
-          'subscribe_odom_info':True,
-          'approx_sync':False,
-          'wait_imu_to_init':True}]
-
-    remappings = [
-                # RGB-D Camera remappings (D435i)
-                ('rgb/image', '/d435i_camera/color/image_raw'),
-                ('rgb/camera_info', '/d435i_camera/color/camera_info'),
-                ('depth/image', '/d435i_camera/depth/image_rect_raw'),
-                
-                # Lidar remapping
-                ('scan', '/scan'),
-                
-                # Odometry from Leo's merged odometry
-                ('odom', '/merged_odom'),]
     
-    config_file = os.path.join(
-        robot_slam_dir,
-        'config',
-        'rtbmap_config.yaml'
-    )
+    # RTABMap parameters
+    # NOTE: Parameters with capital letters (RTAB-Map specific) must be strings!
+    parameters = [{
+        'use_sim_time': use_sim_time,
+        
+        # Frame IDs
+        'frame_id': 'base_link',
+        'odom_frame_id': 'odom',
+        'map_frame_id': 'map',
+        'publish_tf': True,
+        
+        # Subscriptions
+        'subscribe_depth': True,
+        'subscribe_rgb': True,
+        'subscribe_scan': True,
+        'subscribe_scan_cloud': False,
+        'subscribe_rgbd': False,
+        
+        # Synchronization
+        'approx_sync': True,
+        'sync_queue_size': 30,  # Changed from queue_size
+        'qos': 2,
+        
+        # Wait for transforms
+        'wait_for_transform': 0.5,
+        
+        # Database
+        'database_path': '~/.ros/rtabmap_leo.db',
+        
+        # SLAM vs Localization (native boolean OK)
+        'Mem/IncrementalMemory': 'true',        # String!
+        'Mem/InitWMWithAllNodes': 'false',      # String!
+        
+        # Basic SLAM parameters (native types OK for these)
+        'RGBD/AngularUpdate': '0.05',           # String!
+        'RGBD/LinearUpdate': '0.05',            # String!
+        'Rtabmap/DetectionRate': '1.0',         # String!
+        
+        # Grid mapping (MUST be strings)
+        'Grid/FromDepth': 'true',               # String!
+        'Grid/3D': 'true',                      # String! This was the error
+        'Grid/RayTracing': 'true',              # String!
+        'Grid/CellSize': '0.05',                # String!
+        'Grid/RangeMax': '5.0',                 # String!
+        'Grid/MaxObstacleHeight': '2.0',        # String!
+        'Grid/MinObstacleHeight': '0.1',        # String!
+        
+        # Optimization (strings)
+        'Reg/Strategy': '1',                    # String! 1=ICP
+        'Reg/Force3DoF': 'true',                # String!
+        
+        # ICP parameters
+        'Icp/VoxelSize': '0.05',               # String!
+        'Icp/MaxCorrespondenceDistance': '0.1', # String!
+        'Icp/MaxTranslation': '0.2',           # String!
+        
+        # Visual parameters
+        'Vis/MaxDepth': '4.0',                 # String!
+        'Vis/MinInliers': '15',                # String!
+    }]
+    
+    # Topic remappings
+    remappings = [
+        ('rgb/image', '/bridge/rgb_image'),
+        ('rgb/camera_info', '/bridge/camera_info'),
+        ('depth/image', '/bridge/depth_image'),
+        ('scan', '/bridge/scan'),
+        ('odom', '/bridge/odom'),
+    ]
     
     return LaunchDescription([
         
@@ -61,29 +105,16 @@ def generate_launch_description():
             description='Launch RTABMap visualization'
         ),
         
-        DeclareLaunchArgument(
-            'rviz',
-            default_value='true',
-            description='Launch RViz'
-        ),
-        
         # RTABMap SLAM Node
         Node(
             package='rtabmap_slam',
             executable='rtabmap',
             output='screen',
-            parameters=[
-                config_file,
-                {
-                    'use_sim_time': use_sim_time,
-                    'localization': localization,
-                }
-            ],
-            remappings= remappings,
-            arguments=[
-                '--delete_db_on_start',  # Start fresh (remove this to keep map)
-                '--udebug'               # Enable debug output
-            ],
+            parameters=parameters,
+            remappings=remappings,
+            # arguments=[
+            #     '--delete_db_on_start',
+            # ],
             namespace=''
         ),
         
@@ -92,27 +123,10 @@ def generate_launch_description():
             package='rtabmap_viz',
             executable='rtabmap_viz',
             output='screen',
-            parameters=[
-                config_file,
-                {
-                    'use_sim_time': use_sim_time,
-                }
-            ],
-            remappings= remappings,
+            parameters=parameters,
+            remappings=remappings,
             condition=launch.conditions.IfCondition(
                 LaunchConfiguration('rtabmap_viz')
-            )
-        ),
-        
-        # RViz (optional)
-        Node(
-            package='rviz2',
-            executable='rviz2',
-            output='screen',
-            arguments=['-d', os.path.join(robot_slam_dir, 'rviz', 'rtabmap_leo.rviz')],
-            parameters=[{'use_sim_time': use_sim_time}],
-            condition=launch.conditions.IfCondition(
-                LaunchConfiguration('rviz')
             )
         ),
         

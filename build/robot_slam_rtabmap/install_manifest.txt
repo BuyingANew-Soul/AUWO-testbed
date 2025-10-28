@@ -1,6 +1,5 @@
 /home/orin/AUWO-testbed/install/robot_slam_rtabmap/share/robot_slam_rtabmap//launch/rtbmap.launch.py
 /home/orin/AUWO-testbed/install/robot_slam_rtabmap/share/robot_slam_rtabmap//config/rtbmap_config.yaml
-/home/orin/AUWO-testbed/install/robot_slam_rtabmap/share/robot_slam_rtabmap//rviz/rtabmap_leo.rviz
 /home/orin/AUWO-testbed/install/robot_slam_rtabmap/share/ament_index/resource_index/package_run_dependencies/robot_slam_rtabmap
 /home/orin/AUWO-testbed/install/robot_slam_rtabmap/share/ament_index/resource_index/parent_prefix_path/robot_slam_rtabmap
 /home/orin/AUWO-testbed/install/robot_slam_rtabmap/share/robot_slam_rtabmap/environment/ament_prefix_path.sh
