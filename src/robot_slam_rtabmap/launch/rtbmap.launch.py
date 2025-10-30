@@ -54,7 +54,7 @@ def generate_launch_description():
         
         # Grid mapping (MUST be strings)
         'Grid/FromDepth': 'true',               # String!
-        'Grid/3D': 'true',                      # String! This was the error
+        'Grid/3D': 1,                      # String! This was the error
         'Grid/RayTracing': 'true',              # String!
         'Grid/CellSize': '0.05',                # String!
         'Grid/RangeMax': '5.0',                 # String!
@@ -77,11 +77,11 @@ def generate_launch_description():
     
     # Topic remappings
     remappings = [
-        ('rgb/image', '/bridge/rgb_image'),
-        ('rgb/camera_info', '/bridge/camera_info'),
-        ('depth/image', '/bridge/depth_image'),
-        ('scan', '/bridge/scan'),
-        ('odom', '/bridge/odom'),
+        ('rgb/image', '/d435i_camera/color/image_raw'),
+        ('rgb/camera_info', '/d435i_camera/color/camera_info'),
+        ('depth/image', '/d435i_camera/depth/image_rect_raw'),
+        ('scan', '/scan'),
+        ('odom', '/merged_odom'),
     ]
     
     return LaunchDescription([
@@ -112,10 +112,10 @@ def generate_launch_description():
             output='screen',
             parameters=parameters,
             remappings=remappings,
-            # arguments=[
-            #     '--delete_db_on_start',
-            # ],
-            namespace=''
+            arguments=[
+                '--delete_db_on_start',
+            ],
+            namespace='rtabmap',
         ),
         
         # RTABMap Visualization (optional)
