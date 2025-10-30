@@ -1,0 +1,43 @@
+[0.012s] Invoking command in '/home/limbo/Desktop/AUWO-testbed/src/build/robot_slam_rtabmap': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/limbo/Desktop/AUWO-testbed/src/robot_slam_rtabmap -DCMAKE_INSTALL_PREFIX=/home/limbo/Desktop/AUWO-testbed/src/install/robot_slam_rtabmap
+[0.158s] -- The C compiler identification is GNU 13.3.0
+[0.267s] -- The CXX compiler identification is GNU 13.3.0
+[0.290s] -- Detecting C compiler ABI info
+[0.388s] -- Detecting C compiler ABI info - done
+[0.400s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.401s] -- Detecting C compile features
+[0.402s] -- Detecting C compile features - done
+[0.414s] -- Detecting CXX compiler ABI info
+[0.518s] -- Detecting CXX compiler ABI info - done
+[0.527s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.527s] -- Detecting CXX compile features
+[0.528s] -- Detecting CXX compile features - done
+[0.553s] -- Found ament_cmake: 2.5.4 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.722s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[0.869s] -- Found rtabmap_ros: 0.22.1 (/opt/ros/jazzy/share/rtabmap_ros/cmake)
+[0.873s] -- Found ament_lint_auto: 0.17.3 (/opt/ros/jazzy/share/ament_lint_auto/cmake)
+[1.001s] -- Added test 'lint_cmake' to check CMake code style
+[1.002s] -- Added test 'xmllint' to check XML markup files
+[1.005s] -- Configuring done (1.0s)
+[1.008s] -- Generating done (0.0s)
+[1.010s] -- Build files have been written to: /home/limbo/Desktop/AUWO-testbed/src/build/robot_slam_rtabmap
+[1.016s] Invoked command in '/home/limbo/Desktop/AUWO-testbed/src/build/robot_slam_rtabmap' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/limbo/Desktop/AUWO-testbed/src/robot_slam_rtabmap -DCMAKE_INSTALL_PREFIX=/home/limbo/Desktop/AUWO-testbed/src/install/robot_slam_rtabmap
+[1.017s] Invoking command in '/home/limbo/Desktop/AUWO-testbed/src/build/robot_slam_rtabmap': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/limbo/Desktop/AUWO-testbed/src/build/robot_slam_rtabmap -- -j8 -l8
+[1.059s] Invoked command in '/home/limbo/Desktop/AUWO-testbed/src/build/robot_slam_rtabmap' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/limbo/Desktop/AUWO-testbed/src/build/robot_slam_rtabmap -- -j8 -l8
+[1.069s] Invoking command in '/home/limbo/Desktop/AUWO-testbed/src/build/robot_slam_rtabmap': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/limbo/Desktop/AUWO-testbed/src/build/robot_slam_rtabmap
+[1.078s] -- Install configuration: ""
+[1.078s] -- Installing: /home/limbo/Desktop/AUWO-testbed/src/install/robot_slam_rtabmap/share/ament_index/resource_index/package_run_dependencies/robot_slam_rtabmap
+[1.078s] -- Installing: /home/limbo/Desktop/AUWO-testbed/src/install/robot_slam_rtabmap/share/ament_index/resource_index/parent_prefix_path/robot_slam_rtabmap
+[1.078s] -- Installing: /home/limbo/Desktop/AUWO-testbed/src/install/robot_slam_rtabmap/share/robot_slam_rtabmap/environment/ament_prefix_path.sh
+[1.079s] -- Installing: /home/limbo/Desktop/AUWO-testbed/src/install/robot_slam_rtabmap/share/robot_slam_rtabmap/environment/ament_prefix_path.dsv
+[1.079s] -- Installing: /home/limbo/Desktop/AUWO-testbed/src/install/robot_slam_rtabmap/share/robot_slam_rtabmap/environment/path.sh
+[1.079s] -- Installing: /home/limbo/Desktop/AUWO-testbed/src/install/robot_slam_rtabmap/share/robot_slam_rtabmap/environment/path.dsv
+[1.079s] -- Installing: /home/limbo/Desktop/AUWO-testbed/src/install/robot_slam_rtabmap/share/robot_slam_rtabmap/local_setup.bash
+[1.079s] -- Installing: /home/limbo/Desktop/AUWO-testbed/src/install/robot_slam_rtabmap/share/robot_slam_rtabmap/local_setup.sh
+[1.079s] -- Installing: /home/limbo/Desktop/AUWO-testbed/src/install/robot_slam_rtabmap/share/robot_slam_rtabmap/local_setup.zsh
+[1.079s] -- Installing: /home/limbo/Desktop/AUWO-testbed/src/install/robot_slam_rtabmap/share/robot_slam_rtabmap/local_setup.dsv
+[1.079s] -- Installing: /home/limbo/Desktop/AUWO-testbed/src/install/robot_slam_rtabmap/share/robot_slam_rtabmap/package.dsv
+[1.080s] -- Installing: /home/limbo/Desktop/AUWO-testbed/src/install/robot_slam_rtabmap/share/ament_index/resource_index/packages/robot_slam_rtabmap
+[1.080s] -- Installing: /home/limbo/Desktop/AUWO-testbed/src/install/robot_slam_rtabmap/share/robot_slam_rtabmap/cmake/robot_slam_rtabmapConfig.cmake
+[1.080s] -- Installing: /home/limbo/Desktop/AUWO-testbed/src/install/robot_slam_rtabmap/share/robot_slam_rtabmap/cmake/robot_slam_rtabmapConfig-version.cmake
+[1.080s] -- Installing: /home/limbo/Desktop/AUWO-testbed/src/install/robot_slam_rtabmap/share/robot_slam_rtabmap/package.xml
+[1.082s] Invoked command in '/home/limbo/Desktop/AUWO-testbed/src/build/robot_slam_rtabmap' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/limbo/Desktop/AUWO-testbed/src/build/robot_slam_rtabmap
