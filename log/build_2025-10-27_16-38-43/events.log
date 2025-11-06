@@ -1,3 +1,0 @@
-[0.000000] (-) TimerEvent: {}
-[0.000500] (-) JobUnselected: {'identifier': 'robot_slam_rtabmap'}
-[0.000781] (-) EventReactorShutdown: {}

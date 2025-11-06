@@ -1,0 +1,21 @@
+-- Install configuration: ""
+-- Up-to-date: /home/limbo/Desktop/AUWO-testbed/install/robot_slam_rtabmap/share/robot_slam_rtabmap//launch
+-- Up-to-date: /home/limbo/Desktop/AUWO-testbed/install/robot_slam_rtabmap/share/robot_slam_rtabmap//launch/rtabmap.launch.py
+-- Up-to-date: /home/limbo/Desktop/AUWO-testbed/install/robot_slam_rtabmap/share/robot_slam_rtabmap//config
+-- Up-to-date: /home/limbo/Desktop/AUWO-testbed/install/robot_slam_rtabmap/share/robot_slam_rtabmap//config/rtabmap_config.yaml
+-- Installing: /home/limbo/Desktop/AUWO-testbed/install/robot_slam_rtabmap/share/robot_slam_rtabmap//rviz
+-- Installing: /home/limbo/Desktop/AUWO-testbed/install/robot_slam_rtabmap/share/ament_index/resource_index/package_run_dependencies/robot_slam_rtabmap
+-- Installing: /home/limbo/Desktop/AUWO-testbed/install/robot_slam_rtabmap/share/ament_index/resource_index/parent_prefix_path/robot_slam_rtabmap
+-- Installing: /home/limbo/Desktop/AUWO-testbed/install/robot_slam_rtabmap/share/robot_slam_rtabmap/environment/ament_prefix_path.sh
+-- Installing: /home/limbo/Desktop/AUWO-testbed/install/robot_slam_rtabmap/share/robot_slam_rtabmap/environment/ament_prefix_path.dsv
+-- Installing: /home/limbo/Desktop/AUWO-testbed/install/robot_slam_rtabmap/share/robot_slam_rtabmap/environment/path.sh
+-- Installing: /home/limbo/Desktop/AUWO-testbed/install/robot_slam_rtabmap/share/robot_slam_rtabmap/environment/path.dsv
+-- Installing: /home/limbo/Desktop/AUWO-testbed/install/robot_slam_rtabmap/share/robot_slam_rtabmap/local_setup.bash
+-- Installing: /home/limbo/Desktop/AUWO-testbed/install/robot_slam_rtabmap/share/robot_slam_rtabmap/local_setup.sh
+-- Installing: /home/limbo/Desktop/AUWO-testbed/install/robot_slam_rtabmap/share/robot_slam_rtabmap/local_setup.zsh
+-- Installing: /home/limbo/Desktop/AUWO-testbed/install/robot_slam_rtabmap/share/robot_slam_rtabmap/local_setup.dsv
+-- Up-to-date: /home/limbo/Desktop/AUWO-testbed/install/robot_slam_rtabmap/share/robot_slam_rtabmap/package.dsv
+-- Installing: /home/limbo/Desktop/AUWO-testbed/install/robot_slam_rtabmap/share/ament_index/resource_index/packages/robot_slam_rtabmap
+-- Installing: /home/limbo/Desktop/AUWO-testbed/install/robot_slam_rtabmap/share/robot_slam_rtabmap/cmake/robot_slam_rtabmapConfig.cmake
+-- Installing: /home/limbo/Desktop/AUWO-testbed/install/robot_slam_rtabmap/share/robot_slam_rtabmap/cmake/robot_slam_rtabmapConfig-version.cmake
+-- Installing: /home/limbo/Desktop/AUWO-testbed/install/robot_slam_rtabmap/share/robot_slam_rtabmap/package.xml
