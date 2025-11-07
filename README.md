@@ -3,6 +3,22 @@
 ### **Workspace Structure
 
 #### AUWO-testbed/
+
+#### ├── docker/                        #### docker setup
+#### │   ├── .env
+#### │   ├── docker-compose.yml
+#### │   ├── Dockerfile
+#### │   ├── entrypoint.sh
+
+#### ├── config/                        #### configs on host
+#### │   ├── sensors
+#### │   ├── system
+#### │   ├── udev
+#### │   │   ├── 99-realsense-d435if.rules
+#### │   │   ├── 99-rplidar.rules
+
+
+
 #### ├── src/
 #### │   ├── robot_bringup/              #### Launch files
 #### │   │   ├── launch/
