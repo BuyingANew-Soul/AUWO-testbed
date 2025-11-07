@@ -17,7 +17,10 @@
 #### │   │   ├── 99-realsense-d435if.rules
 #### │   │   ├── 99-rplidar.rules
 
-
+#### ├── scripts/                        
+#### │   ├── build_docker_image.sh
+#### │   ├── run_docker_container.sh
+#### │   ├── install_udev_rules.sh
 
 #### ├── src/
 #### │   ├── robot_bringup/              #### Launch files

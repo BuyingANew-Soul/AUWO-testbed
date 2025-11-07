@@ -1,0 +1,66 @@
+services:
+  excavator:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+      args:
+        USER_ID: ${USER_ID:-1000}
+        GROUP_ID: ${GROUP_ID:-1000}
+        WORKSPACE: ${WORKSPACE:-/workspace}
+
+    image: auwo_ros2:jazzy
+    container_name: auwo_dev
+
+    # Networking / IPC
+    network_mode: host
+    ipc: host
+
+    # GPU access (Jetson + nvidia-container-toolkit)
+    runtime: nvidia
+
+    # Devices
+    devices:
+      - /dev/video0:/dev/video0
+      - /dev/video1:/dev/video1
+      - /dev/video2:/dev/video2
+      - /dev/video3:/dev/video3
+      - /dev/video4:/dev/video4
+      - /dev/video5:/dev/video5
+      - /dev/ttyUSB0:/dev/ttyUSB0
+      - /dev/rplidar:/dev/rplidar
+
+    # Volumes
+    volumes:
+      # Code/config from host into the container workspace
+      - ../src:${WORKSPACE:-/workspace}/src:rw
+      - ../config:${WORKSPACE:-/workspace}/config:ro
+
+      # Persistent build artifacts/logs in named volumes
+      - install_volume:${WORKSPACE:-/workspace}/install
+      - build_volume:${WORKSPACE:-/workspace}/build
+      - log_volume:${WORKSPACE:-/workspace}/log
+
+      # ROS home for maps/bags etc.
+      - ${HOME}/.ros:/home/robot/.ros
+
+      # X11 (optional GUI)
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+
+    environment:
+      - DISPLAY=${DISPLAY:-}
+      - QT_X11_NO_MITSHM=1
+      # - ROS_DOMAIN_ID=${ROS_DOMAIN_ID:-42}
+      - ROS_AUTOMATIC_DISCOVERY_RANGE=SUBNET
+      - WORKSPACE=${WORKSPACE:-/workspace}
+           # NVIDIA on Jetson
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=all
+
+    # Keep container interactive-ready
+    stdin_open: true
+    tty: true
+
+volumes:
+  install_volume:
+  build_volume:
+  log_volume:
