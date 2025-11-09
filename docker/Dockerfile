@@ -25,6 +25,13 @@ RUN set -eux \
       build-essential cmake \
       python3-pip python3-colcon-common-extensions \
       python3-vcstool python3-rosdep udev \
+      # SLAM and useful plugins
+      ros-${ROS_DISTRO}-rtabmap-ros \
+      ros-${ROS_DISTRO}-rviz2 \
+      ros-${ROS_DISTRO}-image-transport-plugins \
+      ros-${ROS_DISTRO}-depth-image-proc \
+      ros-${ROS_DISTRO}-pcl-conversions \
+      ros-${ROS_DISTRO}-pcl-ros \
  && rm -rf /var/lib/apt/lists/* \
  && sed -i 's/^# *\(en_US.UTF-8 UTF-8\)/\1/' /etc/locale.gen \
  && locale-gen en_US.UTF-8 \

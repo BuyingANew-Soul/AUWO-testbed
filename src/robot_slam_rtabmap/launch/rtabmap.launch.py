@@ -54,7 +54,7 @@ def generate_launch_description():
         
         # Grid mapping (MUST be strings)
         'Grid/FromDepth': 'true',               # String!
-        'Grid/3D': 1,                      # String! This was the error
+        'Grid/3D': 'true',                      # String! This was the error
         'Grid/RayTracing': 'true',              # String!
         'Grid/CellSize': '0.05',                # String!
         'Grid/RangeMax': '5.0',                 # String!

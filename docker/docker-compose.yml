@@ -19,15 +19,15 @@ services:
     runtime: nvidia
 
     # Devices
-    devices:
-      - /dev/video0:/dev/video0
-      - /dev/video1:/dev/video1
-      - /dev/video2:/dev/video2
-      - /dev/video3:/dev/video3
-      - /dev/video4:/dev/video4
-      - /dev/video5:/dev/video5
-      - /dev/ttyUSB0:/dev/ttyUSB0
-      - /dev/rplidar:/dev/rplidar
+    # devices:
+    #   - /dev/video0:/dev/video0
+    #   - /dev/video1:/dev/video1
+    #   - /dev/video2:/dev/video2
+    #   - /dev/video3:/dev/video3
+    #   - /dev/video4:/dev/video4
+    #   - /dev/video5:/dev/video5
+    #   - /dev/ttyUSB0:/dev/ttyUSB0
+    #   - /dev/rplidar:/dev/rplidar
 
     # Volumes
     volumes:
@@ -44,7 +44,7 @@ services:
       - ${HOME}/.ros:/home/robot/.ros
 
       # X11 (optional GUI)
-      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      # - /tmp/.X11-unix:/tmp/.X11-unix:rw
 
     environment:
       - DISPLAY=${DISPLAY:-}
