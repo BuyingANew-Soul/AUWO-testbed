@@ -31,12 +31,15 @@ def generate_launch_description():
         'subscribe_scan': True,
         'subscribe_scan_cloud': False,
         'subscribe_rgbd': False,
+        'subscribe_imu': True,
         
         # Synchronization
         'approx_sync': True,
         'sync_queue_size': 30,  # Changed from queue_size
         'qos': 2,
         
+        # IMU usage
+        'wait_imu_to_init': True,
         # Wait for transforms
         'wait_for_transform': 0.5,
         
@@ -82,6 +85,7 @@ def generate_launch_description():
         ('depth/image', '/d435i_camera/depth/image_rect_raw'),
         ('scan', '/scan'),
         ('odom', '/merged_odom'),
+        ('imu', '/rtabmap/imu'),
     ]
     
     return LaunchDescription([
