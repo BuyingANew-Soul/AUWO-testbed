@@ -32,11 +32,16 @@ def generate_launch_description():
         'subscribe_scan_cloud': False,
         'subscribe_rgbd': False,
         'subscribe_imu': True,
+        # 'compressed': True,
         
         # Synchronization
         'approx_sync': True,
+        # 'topic_queue_size':3,
         'sync_queue_size': 30,  # Changed from queue_size
         'qos': 2,
+
+        'rgb/image_transport': 'compressed',
+        'depth/image_transport': 'compressedDepth',
         
         # IMU usage
         'wait_imu_to_init': True,

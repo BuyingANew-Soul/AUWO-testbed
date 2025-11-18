@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<robot>
+
+  <link name="sp3lidar_link">
+    <visual>
+      <origin xyz="0 0 0.009"/>
+      <geometry>
+        <box size="0.08 0.08 0.018"/>
+      </geometry>
+      <material name="support">
+        <color rgba="0 0 0 0.6"/>
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0 0 0.02975"/>
+      <geometry>
+        <box size="0.055 0.055 0.0235"/>
+      </geometry>
+      <material name="base">
+        <color rgba="0.0 0.0 0.0 1.0"/>
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0 0 0.0504"/>
+      <geometry>
+        <cylinder radius="0.0253" length="0.0178"/>
+      </geometry>
+      <material name="lidar">
+        <color rgba="1.0 0.0 0.0 0.7"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0.009"/>
+      <geometry>
+        <box size="0.08 0.08 0.018"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0 0 0.02975"/>
+      <geometry>
+        <box size="0.055 0.055 0.0235"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0 0 0.0504"/>
+      <geometry>
+        <cylinder radius="0.0253" length="0.0178"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="sp3lidar_joint" type="fixed">
+    <origin xyz="0.0775 0.037 0.0"/>
+    <parent link="base_link"/>
+    <child link="sp3lidar_link"/>
+  </joint>
+
+  <link name="laser_frame"/>
+
+  <joint name="laser_joint" type="fixed">
+    <origin xyz="0 0 0.048" rpy="0 0 3.14159"/>
+    <parent link="sp3lidar_link"/>
+    <child link="laser_frame"/>
+  </joint>
+
+</robot>
