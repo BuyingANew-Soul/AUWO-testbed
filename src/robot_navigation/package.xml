@@ -1,16 +1,21 @@
 <?xml version="1.0"?>
-<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
   <name>robot_navigation</name>
-  <version>0.0.0</version>
-  <description>TODO: Package description</description>
-  <maintainer email="taz.920722@gmail.com">nameless</maintainer>
-  <license>MIT</license>
+  <version>0.1.0</version>
+  <description>Navigation configuration and launch files for the robot using Nav2 and RTAB-Map integration.</description>
+  <maintainer email="your@email.com">Your Name</maintainer>
+  <license>MIT</license>  <!-- Or your preferred license, e.g., BSD, MIT -->
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 
-  <test_depend>ament_lint_auto</test_depend>
-  <test_depend>ament_lint_common</test_depend>
+  <!-- Dependencies for Nav2 and related packages -->
+  <depend>nav2_bringup</depend>
+  <depend>robot_slam_rtabmap</depend>  <!-- For including RTAB-Map launch -->
+  <depend>rviz2</depend>  <!-- For the optional RViz node -->
+
+  <!-- Additional runtime dependencies if needed -->
+  <exec_depend>rclcpp</exec_depend>
+  <exec_depend>tf2_ros</exec_depend>  <!-- Often useful for transform handling in Nav2 -->
 
   <export>
     <build_type>ament_cmake</build_type>
