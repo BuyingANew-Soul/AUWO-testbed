@@ -32,16 +32,17 @@ def generate_launch_description():
         'subscribe_scan_cloud': False,
         'subscribe_rgbd': False,
         'subscribe_imu': True,
-        # 'compressed': True,
-        
+        # # 'compressed': True,
+        # 'depth_image_transport': 'compressedDepth',
+        # 'rgb_image_transport': 'compressed',
+        'rgb/image_transport': 'compressed',
+        'depth/image_transport': 'compressedDepth',
         # Synchronization
         'approx_sync': True,
         # 'topic_queue_size':3,
-        'sync_queue_size': 30,  # Changed from queue_size
+        'sync_queue_size': 10,  # Changed from queue_size
+        'topic_queue_size': 10,
         'qos': 2,
-
-        'rgb/image_transport': 'compressed',
-        'depth/image_transport': 'compressedDepth',
         
         # IMU usage
         'wait_imu_to_init': True,
@@ -118,15 +119,20 @@ def generate_launch_description():
         Node(
             package='rtabmap_slam',
             executable='rtabmap',
+            namespace='rtabmap',
             output='screen',
             parameters=parameters,
             remappings=remappings,
             arguments=[
                 '--delete_db_on_start',
+                # '--ros-args',
+                # '-p', 'rgb/image_transport:=compressed',
+                # '-p', 'depth/image_transport:=compressedDepth',
+                # '-p', 'rgb_image_transport:=compressed', 
+                # '-p', 'depth_image_transport:=compressedDepth'
             ],
-            namespace='rtabmap',
         ),
-        
+
         # RTABMap Visualization (optional)
         Node(
             package='rtabmap_viz',
@@ -139,4 +145,4 @@ def generate_launch_description():
             )
         ),
         
-    ])
+])
