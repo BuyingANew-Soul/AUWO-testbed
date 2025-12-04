@@ -48,6 +48,7 @@ def generate_launch_description():
                 'autostart': 'true',
                 # Very simple BT: just go to pose with basic recovery
                 'default_nav_to_pose_bt_xml': os.path.join(nav_pkg, 'config', 'simple_navigate_to_pose.xml'),
+                'use_collision_monitor': 'false',
             }.items()
         ),
 
