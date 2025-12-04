@@ -1,7 +1,7 @@
 from launch import LaunchDescription
 import launch
 from launch.actions import DeclareLaunchArgument
-from launch.substitutions import LaunchConfiguration
+from launch.substitutions import LaunchConfiguration, PythonExpression
 from launch_ros.actions import Node
 from ament_index_python.packages import get_package_share_directory
 import os
@@ -12,12 +12,14 @@ def generate_launch_description():
     
     # Parameters
     use_sim_time = LaunchConfiguration('use_sim_time')
-    localization = LaunchConfiguration('localization')
-    
+    # localization = LaunchConfiguration('localization')
+    db_path = LaunchConfiguration('db_path') 
+
+
     # RTABMap parameters
     # NOTE: Parameters with capital letters (RTAB-Map specific) must be strings!
     parameters = [{
-        'use_sim_time': use_sim_time,
+        'use_sim_time': False,
         
         # Frame IDs
         'frame_id': 'base_link',
@@ -40,8 +42,8 @@ def generate_launch_description():
         # Synchronization
         'approx_sync': True,
         # 'topic_queue_size':3,
-        'sync_queue_size': 10,  # Changed from queue_size
-        'topic_queue_size': 10,
+        'sync_queue_size': 20,  # Changed from queue_size
+        'topic_queue_size': 20,
         'qos': 2,
         
         # IMU usage
@@ -50,12 +52,17 @@ def generate_launch_description():
         'wait_for_transform': 0.5,
         
         # Database
-        'database_path': '~/.ros/rtabmap_leo.db',
+        'database_path': db_path,
         
-        # SLAM vs Localization (native boolean OK)
+        # For mapping
         'Mem/IncrementalMemory': 'true',        # String!
         'Mem/InitWMWithAllNodes': 'false',      # String!
-        
+
+        # For localization
+        # 'Mem/IncrementalMemory': 'false',        # String!
+        # 'Mem/InitWMWithAllNodes': 'true',
+
+                
         # Basic SLAM parameters (native types OK for these)
         'RGBD/AngularUpdate': '0.05',           # String!
         'RGBD/LinearUpdate': '0.05',            # String!
@@ -123,14 +130,14 @@ def generate_launch_description():
             output='screen',
             parameters=parameters,
             remappings=remappings,
-            arguments=[
-                '--delete_db_on_start',
-                # '--ros-args',
-                # '-p', 'rgb/image_transport:=compressed',
-                # '-p', 'depth/image_transport:=compressedDepth',
-                # '-p', 'rgb_image_transport:=compressed', 
-                # '-p', 'depth_image_transport:=compressedDepth'
-            ],
+            # arguments=[
+            #     '--delete_db_on_start',
+            #     # '--ros-args',
+            #     # '-p', 'rgb/image_transport:=compressed',
+            #     # '-p', 'depth/image_transport:=compressedDepth',
+            #     # '-p', 'rgb_image_transport:=compressed', 
+            #     # '-p', 'depth_image_transport:=compressedDepth'
+            # ],
         ),
 
         # RTABMap Visualization (optional)
