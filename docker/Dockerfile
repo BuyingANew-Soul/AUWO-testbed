@@ -27,7 +27,8 @@ RUN set -eux \
       python3-vcstool python3-rosdep udev \
       # SLAM and useful plugins
       ros-${ROS_DISTRO}-rtabmap-ros \
-      ros-${ROS_DISTRO}-rviz2 \
+      ros-${ROS_DISTRO}-navigation2 \
+      ros-${ROS_DISTRO}-nav2-bringup \
       ros-${ROS_DISTRO}-image-transport-plugins \
       ros-${ROS_DISTRO}-depth-image-proc \
       ros-${ROS_DISTRO}-pcl-conversions \

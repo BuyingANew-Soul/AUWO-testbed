@@ -4,28 +4,31 @@ set -e
 : "${WORKSPACE:=/workspace}"
 ROS_DISTRO_SAFE="${ROS_DISTRO:-jazzy}"
 
-# --- Create writable dirs (ok if they already exist) ---
+# Fix colcon dirs (volumes often come in root-owned)
 for d in src build install log; do
-  sudo mkdir -p "${WORKSPACE}/${d}"
+  sudo install -d -m 0775 -o "$(id -u)" -g "$(id -g)" "${WORKSPACE}/${d}" 2>/dev/null || true
+  sudo chown -R "$(id -u):$(id -g)" "${WORKSPACE}/${d}" 2>/dev/null || true
 done
 
-# --- Chown only if directory is writable; skip read-only mounts (e.g., config) ---
-for d in src build install log; do
-  if [ -w "${WORKSPACE}/${d}" ]; then
-    sudo chown -R robot:robot "${WORKSPACE}/${d}" || true
-  fi
-done
+# Do NOT touch ${WORKSPACE}/config (ro)
 
-# (Do NOT chown ${WORKSPACE}/config — it may be mounted :ro)
+# Fix ROS home (volume/bind may be root-owned)
+sudo install -d -m 0775 -o "$(id -u)" -g "$(id -g)" /home/robot/.ros 2>/dev/null || true
+sudo chown -R "$(id -u):$(id -g)" /home/robot/.ros 2>/dev/null || true
 
-# --- Source ROS 2 ---
+# Fix RTAB-Map DB directory if you use it
+if [ -d /data/rtabmap ] || mkdir -p /data/rtabmap 2>/dev/null; then
+  sudo install -d -m 0775 -o "$(id -u)" -g "$(id -g)" /data/rtabmap 2>/dev/null || true
+  sudo chown -R "$(id -u):$(id -g)" /data/rtabmap 2>/dev/null || true
+fi
+
+# Source ROS 2
 if [ -r "/opt/ros/${ROS_DISTRO_SAFE}/setup.bash" ]; then
-  # shellcheck disable=SC1090
   source "/opt/ros/${ROS_DISTRO_SAFE}/setup.bash"
 fi
 if [ -r "${WORKSPACE}/install/setup.bash" ]; then
-  # shellcheck disable=SC1090
   source "${WORKSPACE}/install/setup.bash"
 fi
 
 exec "$@"
+

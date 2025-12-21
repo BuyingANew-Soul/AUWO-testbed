@@ -11,56 +11,41 @@ services:
     image: auwo_ros2:jazzy
     container_name: auwo_dev
 
-    # Networking / IPC
     network_mode: host
     ipc: host
-
-    # GPU access (Jetson + nvidia-container-toolkit)
     runtime: nvidia
 
-    # Devices
-    # devices:
-    #   - /dev/video0:/dev/video0
-    #   - /dev/video1:/dev/video1
-    #   - /dev/video2:/dev/video2
-    #   - /dev/video3:/dev/video3
-    #   - /dev/video4:/dev/video4
-    #   - /dev/video5:/dev/video5
-    #   - /dev/ttyUSB0:/dev/ttyUSB0
-    #   - /dev/rplidar:/dev/rplidar
-
-    # Volumes
     volumes:
-      # Code/config from host into the container workspace
+      # Host-edited code/config
       - ../src:${WORKSPACE:-/workspace}/src:rw
       - ../config:${WORKSPACE:-/workspace}/config:ro
 
-      # Persistent build artifacts/logs in named volumes
-      - install_volume:${WORKSPACE:-/workspace}/install
+      # Colcon artifacts (persistent, not in repo)
       - build_volume:${WORKSPACE:-/workspace}/build
+      - install_volume:${WORKSPACE:-/workspace}/install
       - log_volume:${WORKSPACE:-/workspace}/log
 
-      # ROS home for maps/bags etc.
-      - ${HOME}/.ros:/home/robot/.ros
+      # ROS runtime data (persistent)
+      - ros_home:/home/robot/.ros
 
-      # X11 (optional GUI)
-      # - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      # RTAB-Map databases (persistent, separated)
+      - rtabmap_db:/data/rtabmap
 
     environment:
       - DISPLAY=${DISPLAY:-}
       - QT_X11_NO_MITSHM=1
-      # - ROS_DOMAIN_ID=${ROS_DOMAIN_ID:-42}
       - ROS_AUTOMATIC_DISCOVERY_RANGE=SUBNET
       - WORKSPACE=${WORKSPACE:-/workspace}
-           # NVIDIA on Jetson
       - NVIDIA_VISIBLE_DEVICES=all
       - NVIDIA_DRIVER_CAPABILITIES=all
 
-    # Keep container interactive-ready
     stdin_open: true
     tty: true
 
 volumes:
-  install_volume:
   build_volume:
+  install_volume:
   log_volume:
+  ros_home:
+  rtabmap_db:
+
