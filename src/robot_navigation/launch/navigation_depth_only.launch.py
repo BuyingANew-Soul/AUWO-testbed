@@ -34,6 +34,8 @@ def generate_launch_description():
                 "params_file": params_file,
                 "autostart": "true",
                 "use_collision_monitor": "true",
+                "use_docking": "false",
+                "use_route_server": "false",
             }.items(),
         ),
         Node(
