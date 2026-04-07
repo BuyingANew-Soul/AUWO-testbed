@@ -35,6 +35,7 @@ def generate_launch_description():
                 "autostart": "true",
                 "use_collision_monitor": "true",
                 "use_docking": "false",
+                "use_docking_server": "false",
                 "use_route_server": "false",
             }.items(),
         ),
