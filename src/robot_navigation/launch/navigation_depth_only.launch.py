@@ -40,6 +40,23 @@ def generate_launch_description():
             }.items(),
         ),
         Node(
+            package="depthimage_to_laserscan",
+            executable="depthimage_to_laserscan_node",
+            name="depthimage_to_laserscan",
+            output="screen",
+            parameters=[{
+                "range_min": 0.2,
+                "range_max": 4.0,
+                "scan_time": 0.1,
+                "output_frame": "d435i_camera_depth_optical_frame",
+            }],
+            remappings=[
+                ("depth", "/d435i_camera/depth/image_rect_raw"),
+                ("depth_camera_info", "/d435i_camera/depth/camera_info"),
+                ("scan", "/depth_scan"),
+            ],
+        ),
+        Node(
             package="rviz2",
             executable="rviz2",
             arguments=[

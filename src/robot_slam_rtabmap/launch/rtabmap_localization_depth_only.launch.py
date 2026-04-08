@@ -35,7 +35,7 @@ def generate_launch_description():
         "RGBD/LinearUpdate": "0.05",
         "Rtabmap/DetectionRate": "1.0",
         "Grid/FromDepth": "true",
-        "Grid/3D": "true",
+        "Grid/3D": "false",
         "Grid/RayTracing": "true",
         "Grid/CellSize": "0.05",
         "Grid/RangeMax": "5.0",
