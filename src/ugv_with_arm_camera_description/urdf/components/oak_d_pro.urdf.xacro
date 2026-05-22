@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="oak_d_pro">
+<xacro:macro name="oak_d_pro" params="prefix:='camera_' parent origin_xyz origin_rpy">
+
+  <joint name="${prefix}joint" type="fixed">
+    <parent link="${parent}"/>
+    <child  link="${prefix}link"/>
+    <origin xyz="${origin_xyz}" rpy="${origin_rpy}"/>
+  </joint>
+
+  <link name="${prefix}link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <!-- OAK-D Pro body: 97mm wide, 30mm tall, 36mm deep -->
+        <box size="0.036 0.097 0.030"/>
+      </geometry>
+      <material name="oak_black"><color rgba="0.1 0.1 0.1 1"/></material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><box size="0.036 0.097 0.030"/></geometry>
+    </collision>
+    <inertial>
+      <mass value="0.09"/>
+      <inertia ixx="0.0001" ixy="0" ixz="0"
+               iyy="0.0001" iyz="0" izz="0.0001"/>
+    </inertial>
+  </link>
+
+  <!--
+    Optical frame convention: Z forward, X right, Y down.
+    This rotation converts from ROS body frame to camera optical frame.
+    depthai-ros publishes all camera data in this frame.
+  -->
+  <joint name="${prefix}rgb_optical_joint" type="fixed">
+    <parent link="${prefix}link"/>
+    <child  link="${prefix}rgb_camera_optical_frame"/>
+    <origin xyz="0 0 0" rpy="${-pi/2} 0 ${-pi/2}"/>
+  </joint>
+  <link name="${prefix}rgb_camera_optical_frame"/>
+
+  <joint name="${prefix}depth_joint" type="fixed">
+    <parent link="${prefix}link"/>
+    <child  link="${prefix}depth_frame"/>
+    <origin xyz="0 0 0" rpy="${-pi/2} 0 ${-pi/2}"/>
+  </joint>
+  <link name="${prefix}depth_frame"/>
+
+</xacro:macro>
+</robot>

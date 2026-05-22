@@ -1,0 +1,149 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="ugv_rover_base">
+<xacro:macro name="ugv_rover_base" params="prefix:=''">
+
+  <link name="${prefix}base_footprint"/>
+
+  <joint name="${prefix}base_joint" type="fixed">
+    <parent link="${prefix}base_footprint"/>
+    <child  link="${prefix}base_link"/>
+    <origin xyz="0.000460087791654118 0 0.08" rpy="0 0 0"/>
+  </joint>
+
+  <link name="${prefix}base_link">
+    <inertial>
+      <origin xyz="-0.000460087791654118 0 -0.0147959620149623" rpy="0 0 0"/>
+      <mass value="2.78375064359473"/>
+      <inertia ixx="0.00651567554169617" ixy="0" ixz="3.77886436056975E-05"
+               iyy="0.00933991752413667" iyz="0" izz="0.0121583506563461"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://ugv_description/meshes/ugv_rover/base_link.stl"/>
+      </geometry>
+      <material name="chassis_grey"><color rgba="0.75 0.75 0.75 1"/></material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><box size="0.30 0.20 0.10"/></geometry>
+    </collision>
+  </link>
+
+  <joint name="${prefix}imu_joint" type="fixed">
+    <parent link="${prefix}base_link"/>
+    <child  link="${prefix}base_imu_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+  <link name="${prefix}base_imu_link"/>
+
+  <!-- Left front wheel -->
+  <joint name="${prefix}left_up_wheel_joint" type="continuous">
+    <origin xyz="0.0855 0.08726 -0.041212" rpy="1.5708 0 0"/>
+    <parent link="${prefix}base_link"/>
+    <child  link="${prefix}left_up_wheel_link"/>
+    <axis xyz="0 0 -1"/>
+  </joint>
+  <link name="${prefix}left_up_wheel_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <mass value="0.207085933743005"/>
+      <inertia ixx="0.000116541923504163" ixy="0" ixz="0"
+               iyy="0.000170742352371108" iyz="0" izz="0.000116541923504163"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="package://ugv_description/meshes/ugv_rover/left_up_wheel_link.stl"/>
+      </geometry>
+      <material name="wheel_grey"><color rgba="0.627 0.627 0.627 1"/></material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <geometry><cylinder radius="0.039" length="0.028"/></geometry>
+    </collision>
+  </link>
+
+  <!-- Left rear wheel -->
+  <joint name="${prefix}left_down_wheel_joint" type="continuous">
+    <origin xyz="-0.0855 0.08726 -0.041212" rpy="1.5708 0 0"/>
+    <parent link="${prefix}base_link"/>
+    <child  link="${prefix}left_down_wheel_link"/>
+    <axis xyz="0 0 -1"/>
+  </joint>
+  <link name="${prefix}left_down_wheel_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <mass value="0.207085933743005"/>
+      <inertia ixx="0.000116541923504163" ixy="0" ixz="0"
+               iyy="0.000170742352371108" iyz="0" izz="0.000116541923504163"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="package://ugv_description/meshes/ugv_rover/left_down_wheel_link.stl"/>
+      </geometry>
+      <material name="wheel_grey"><color rgba="0.627 0.627 0.627 1"/></material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <geometry><cylinder radius="0.039" length="0.028"/></geometry>
+    </collision>
+  </link>
+
+  <!-- Right front wheel -->
+  <joint name="${prefix}right_up_wheel_joint" type="continuous">
+    <origin xyz="0.0855 -0.08726 -0.041212" rpy="1.5708 0 0"/>
+    <parent link="${prefix}base_link"/>
+    <child  link="${prefix}right_up_wheel_link"/>
+    <axis xyz="0 0 -1"/>
+  </joint>
+  <link name="${prefix}right_up_wheel_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <mass value="0.207085933743005"/>
+      <inertia ixx="0.000116541923504163" ixy="0" ixz="0"
+               iyy="0.000170742352371108" iyz="0" izz="0.000116541923504163"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="package://ugv_description/meshes/ugv_rover/right_up_wheel_link.stl"/>
+      </geometry>
+      <material name="wheel_grey"><color rgba="0.627 0.627 0.627 1"/></material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <geometry><cylinder radius="0.039" length="0.028"/></geometry>
+    </collision>
+  </link>
+
+  <!-- Right rear wheel -->
+  <joint name="${prefix}right_down_wheel_joint" type="continuous">
+    <origin xyz="-0.0855 -0.08726 -0.041212" rpy="1.5708 0 0"/>
+    <parent link="${prefix}base_link"/>
+    <child  link="${prefix}right_down_wheel_link"/>
+    <axis xyz="0 0 -1"/>
+  </joint>
+  <link name="${prefix}right_down_wheel_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <mass value="0.207085933743005"/>
+      <inertia ixx="0.000116541923504163" ixy="0" ixz="0"
+               iyy="0.000170742352371108" iyz="0" izz="0.000116541923504163"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="package://ugv_description/meshes/ugv_rover/right_down_wheel_link.stl"/>
+      </geometry>
+      <material name="wheel_grey"><color rgba="0.627 0.627 0.627 1"/></material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <geometry><cylinder radius="0.039" length="0.028"/></geometry>
+    </collision>
+  </link>
+
+</xacro:macro>
+</robot>

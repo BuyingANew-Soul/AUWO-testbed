@@ -1,0 +1,11 @@
+# Goal
+string object_label         # which object to pick
+geometry_msgs/Pose place_pose  # where to place it (in arm_base_link frame)
+---
+# Result
+bool success
+string message
+---
+# Feedback
+string phase                # DETECTING / PLANNING / APPROACHING / GRASPING / PLACING
+float32 progress            # 0.0 - 1.0

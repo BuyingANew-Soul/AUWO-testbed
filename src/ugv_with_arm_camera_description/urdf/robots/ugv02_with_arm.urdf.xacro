@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="ugv02_with_arm">
+
+
+  <xacro:include filename="$(find ugv_with_arm_camera_description)/urdf/components/ugv_rover_base.urdf.xacro"/>
+  <xacro:include filename="$(find ugv_with_arm_camera_description)/urdf/components/roarm_m2s.urdf.xacro"/>
+  <xacro:include filename="$(find ugv_with_arm_camera_description)/urdf/components/oak_d_pro.urdf.xacro"/>
+
+  <!-- UGV02 chassis -->
+  <xacro:ugv_rover_base prefix=""/>
+
+  <!--
+    RoArm M2-S — measured from base_link origin
+    x = -22.3mm (behind center)
+    y =   0.0mm (centered)
+    z = +88.0mm (above base_link)
+  -->
+  <xacro:roarm_m2s
+    prefix="arm_"
+    parent="base_link"
+    origin_xyz="-0.0223 0.0 0.037"
+    origin_rpy="0 0 0"
+  />
+
+  <!--
+    OAK-D Pro — measured from base_link origin
+    x = +60.45mm (forward)
+    y =   0.0mm  (centered)
+    z = +76.88mm (above base_link)
+    No tilt.
+  -->
+  <xacro:oak_d_pro
+    prefix="camera_"
+    parent="base_link"
+    origin_xyz="0.06045 0.0 0.024"
+    origin_rpy="0 0 0"
+  />
+
+</robot>

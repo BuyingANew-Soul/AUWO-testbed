@@ -1,0 +1,149 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="roarm_m2s">
+<xacro:macro name="roarm_m2s" params="prefix:='arm_' parent origin_xyz origin_rpy">
+
+  <joint name="${prefix}base_joint" type="fixed">
+    <parent link="${parent}"/>
+    <child  link="${prefix}base_link"/>
+    <origin xyz="${origin_xyz}" rpy="${origin_rpy}"/>
+  </joint>
+
+  <link name="${prefix}base_link">
+    <inertial>
+      <origin xyz="0.00373847392098165 0 0.0264265327292804" rpy="0 0 0"/>
+      <mass value="0.326392759093976"/>
+      <inertia ixx="0.000224202818963409" ixy="0" ixz="-2.99224798427881E-05"
+               iyy="0.000286616921839535" iyz="0" izz="0.000349957607258242"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://roarm_description/meshes/base_link.STL"/>
+      </geometry>
+      <material name="arm_grey"><color rgba="0.75 0.75 0.75 1"/></material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><box size="0.08 0.08 0.06"/></geometry>
+    </collision>
+  </link>
+
+  <joint name="${prefix}base_link_to_link1" type="revolute">
+    <origin xyz="0.0100000008759151 0 0.123059270461044" rpy="0 0 0"/>
+    <parent link="${prefix}base_link"/>
+    <child  link="${prefix}link1"/>
+    <axis xyz="0 0 -1"/>
+    <limit lower="-3.1416" upper="3.1416" effort="10.0" velocity="1.0"/>
+  </joint>
+  <link name="${prefix}link1">
+    <inertial>
+      <origin xyz="0 9.70240468164796E-06 -0.0146667419724465" rpy="0 0 0"/>
+      <mass value="0.0928887601998397"/>
+      <inertia ixx="6.09210980255232E-05" ixy="0" ixz="0"
+               iyy="2.53493566630784E-05" iyz="2.16442830142331E-08"
+               izz="4.88050835919342E-05"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://roarm_description/meshes/link1.STL"/>
+      </geometry>
+      <material name="arm_grey"><color rgba="0.75 0.75 0.75 1"/></material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.025" length="0.05"/></geometry>
+    </collision>
+  </link>
+
+  <joint name="${prefix}link1_to_link2" type="revolute">
+    <origin xyz="0 0 0" rpy="-1.5707963267949 -1.5707963267949 0"/>
+    <parent link="${prefix}link1"/>
+    <child  link="${prefix}link2"/>
+    <axis xyz="0 0 -1"/>
+    <limit lower="-1.5708" upper="1.5708" effort="10.0" velocity="1.0"/>
+  </joint>
+  <link name="${prefix}link2">
+    <inertial>
+      <origin xyz="0.122021157535333 0 0" rpy="0 0 0"/>
+      <mass value="0.0895817175833772"/>
+      <inertia ixx="2.6269354271334E-05" ixy="-2.55344668379587E-06" ixz="0"
+               iyy="0.000350369536011831" iyz="0" izz="0.000333056833230846"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://roarm_description/meshes/link2.STL"/>
+      </geometry>
+      <material name="arm_grey"><color rgba="0.75 0.75 0.75 1"/></material>
+    </visual>
+    <collision>
+      <origin xyz="0.118 0 0" rpy="0 1.5708 0"/>
+      <geometry><cylinder radius="0.02" length="0.236"/></geometry>
+    </collision>
+  </link>
+
+  <joint name="${prefix}link2_to_link3" type="revolute">
+    <origin xyz="0.236815132922094 0.0300023995170449 0" rpy="0 0 1.5707963267949"/>
+    <parent link="${prefix}link2"/>
+    <child  link="${prefix}link3"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1" upper="3.1416" effort="10.0" velocity="1.0"/>
+  </joint>
+  <link name="${prefix}link3">
+    <inertial>
+      <origin xyz="-0.00076280945740961 -0.114419656440929 0" rpy="0 0 0"/>
+      <mass value="0.123009044986454"/>
+      <inertia ixx="0.000104111883333949" ixy="0" ixz="0"
+               iyy="1.46357151076022E-05" iyz="0" izz="0.000104009297710106"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://roarm_description/meshes/link3.STL"/>
+      </geometry>
+      <material name="arm_grey"><color rgba="0.75 0.75 0.75 1"/></material>
+    </visual>
+    <collision>
+      <origin xyz="0 -0.108 0" rpy="1.5708 0 0"/>
+      <geometry><cylinder radius="0.018" length="0.216"/></geometry>
+    </collision>
+  </link>
+
+  <joint name="${prefix}link3_to_gripper_link" type="revolute">
+    <origin xyz="0.002906 -0.21599 -0.00066683" rpy="-1.5708 0 -1.5708"/>
+    <parent link="${prefix}link3"/>
+    <child  link="${prefix}gripper_link"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="0" upper="1.5" effort="10.0" velocity="1.0"/>
+  </joint>
+  <link name="${prefix}gripper_link">
+    <inertial>
+      <origin xyz="0.0288857415118809 0 0" rpy="0 0 0"/>
+      <mass value="0.00365697683069397"/>
+      <inertia ixx="1.15139272656909E-06" ixy="0" ixz="0"
+               iyy="2.33034171341163E-06" iyz="0" izz="1.47179863096272E-06"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://roarm_description/meshes/gripper_link.STL"/>
+      </geometry>
+      <material name="arm_dark"><color rgba="0.22 0.22 0.22 1"/></material>
+    </visual>
+    <collision>
+      <origin xyz="0.025 0 0" rpy="0 1.5708 0"/>
+      <geometry><cylinder radius="0.015" length="0.05"/></geometry>
+    </collision>
+  </link>
+
+  <!-- TCP — tool center point used by MoveIt2 as planning target -->
+  <joint name="${prefix}link3_to_hand_tcp" type="fixed">
+    <origin xyz="0.002 -0.2802 0" rpy="-1.5708 0 -1.5708"/>
+    <parent link="${prefix}link3"/>
+    <child  link="${prefix}hand_tcp"/>
+  </joint>
+  <link name="${prefix}hand_tcp"/>
+
+</xacro:macro>
+</robot>

@@ -1,0 +1,7 @@
+# Request the 3D pose of the first object matching this label
+string label
+string target_frame     # transform pose into this frame (e.g. arm_base_link)
+---
+bool found
+auwo_interfaces/DetectedObject object
+string message
