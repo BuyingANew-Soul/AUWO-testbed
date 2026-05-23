@@ -1,0 +1,25 @@
+/**:
+  ros__parameters:
+    camera:
+      i_nn_type: none
+      i_pipeline_type: RGBD
+
+    rgb:
+      i_board_socket_id: 0
+      i_fps: 15.0
+      i_resolution: "1080p"
+
+    stereo:
+      i_output_disparity: false
+      i_aligned_depth: true
+      i_lr_check: true
+
+    left:
+      i_resolution: "400p"
+      i_fps: 15.0
+      i_publish_topic: true
+
+    right:
+      i_resolution: "400p"
+      i_fps: 15.0
+      i_publish_topic: true
