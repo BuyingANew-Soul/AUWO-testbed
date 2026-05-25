@@ -7,15 +7,15 @@ apriltag:
     size: 0.043
 
     # Detection tuning
-    max_hamming: 0
-    profile: false
-    detector:
-      threads: 2
-      decimate: 1.0
-      blur: 0.0
-      refine_edges: true
-      sharpening: 0.25
-      debug: false
+    # max_hamming: 0
+    # profile: false
+    # detector:
+    #   threads: 2
+    #   decimate: 1.0
+    #   blur: 0.0
+    #   refine_edges: true
+    #   sharpening: 0.25
+    #   debug: false
 
     # Per-tag sizes if different tags have different physical sizes
     # tag:

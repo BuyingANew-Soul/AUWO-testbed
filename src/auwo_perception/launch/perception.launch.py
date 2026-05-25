@@ -19,7 +19,7 @@ def generate_launch_description():
         parameters=[config],
         remappings=[
             # apriltag_ros expects image_rect — we remap to raw (OAK-D has low distortion)
-            ('image_rect',   '/oak/oak_d_pro/rgb/image_raw'),
+            ('image_rect', '/oak/oak_d_pro/rgb/image_raw'),
             ('camera_info',  '/oak/oak_d_pro/rgb/camera_info'),
         ],
         output='screen',
