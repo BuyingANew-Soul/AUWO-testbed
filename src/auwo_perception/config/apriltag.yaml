@@ -1,0 +1,23 @@
+apriltag:
+  ros__parameters:
+    # Tag family — 36h11 is the most reliable
+    family: 36h11
+
+    # Default tag size in metres — MEASURE YOUR PRINTED TAG and update this
+    size: 0.043
+
+    # Detection tuning
+    max_hamming: 0
+    profile: 0.0
+    detector:
+      threads: 2
+      decimate: 1.0
+      blur: 0.0
+      refine_edges: true
+      sharpening: 0.25
+      debug: false
+
+    # Per-tag sizes if different tags have different physical sizes
+    # tag:
+    #   ids:   [0,     1    ]
+    #   sizes: [0.162, 0.100]
