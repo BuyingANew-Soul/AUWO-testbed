@@ -30,7 +30,7 @@
     No tilt.
   -->
   <xacro:oak_d_pro
-    prefix="camera_"
+    prefix="oak_d_pro_"
     parent="base_link"
     origin_xyz="0.06045 0.0 0.024"
     origin_rpy="0 0 0"
