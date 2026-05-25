@@ -6,8 +6,8 @@
 
     rgb:
       i_board_socket_id: 0
-      i_fps: 15.0
-      i_resolution: "1080p"
+      i_fps: 10.0              # was 15
+      i_resolution: "720p"     # was 1080p — half the data
 
     stereo:
       i_output_disparity: false
@@ -16,10 +16,10 @@
 
     left:
       i_resolution: "400p"
-      i_fps: 15.0
-      i_publish_topic: true
+      i_fps: 10.0              # was 15
+      i_publish_topic: false   # disable if not needed
 
     right:
       i_resolution: "400p"
-      i_fps: 15.0
-      i_publish_topic: true
+      i_fps: 10.0              # was 15
+      i_publish_topic: false   # disable if not needed

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="oak_d_pro">
-<xacro:macro name="oak_d_pro" params="prefix:='camera_' parent origin_xyz origin_rpy">
+<xacro:macro name="oak_d_pro" params="prefix:='oak_d_pro_' parent origin_xyz origin_rpy">
 
   <joint name="${prefix}joint" type="fixed">
     <parent link="${parent}"/>
