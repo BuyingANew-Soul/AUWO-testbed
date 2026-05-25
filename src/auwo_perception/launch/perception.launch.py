@@ -13,7 +13,7 @@ def generate_launch_description():
     # AprilTag detector node — runs on laptop, subscribes to camera stream from Pi
     apriltag_node = Node(
         package='apriltag_ros',
-        executable='apriltag_ros_continuous_detector_node',
+        executable='apriltag_node',
         name='apriltag',
         namespace='apriltag',
         parameters=[config],
