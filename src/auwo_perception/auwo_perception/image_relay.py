@@ -1,14 +1,9 @@
 #!/usr/bin/env python3
-"""
-Subscribes to compressed camera images with BEST_EFFORT QoS,
-decompresses and republishes as raw with RELIABLE QoS for apriltag_ros.
-"""
 import rclpy
 from rclpy.node import Node
 from rclpy.qos import QoSProfile, ReliabilityPolicy, HistoryPolicy
 from sensor_msgs.msg import CompressedImage, Image
-import cv2
-import numpy as np
+from cv_bridge import CvBridge
 
 
 class ImageRelayNode(Node):
@@ -24,10 +19,14 @@ class ImageRelayNode(Node):
         input_topic  = self.get_parameter('input_topic').value
         output_topic = self.get_parameter('output_topic').value
 
+        self.bridge   = CvBridge()
+        self.received = 0
+        self.published = 0
+
         best_effort_qos = QoSProfile(
             reliability=ReliabilityPolicy.BEST_EFFORT,
             history=HistoryPolicy.KEEP_LAST,
-            depth=1
+            depth=5          # increased from 1 to 5
         )
 
         self.sub = self.create_subscription(
@@ -36,28 +35,32 @@ class ImageRelayNode(Node):
             self._callback,
             best_effort_qos
         )
-        self.pub = self.create_publisher(Image, output_topic, 1)
+        self.pub = self.create_publisher(Image, output_topic, 5)
 
-        self.get_logger().info(
-            f'Relay: {input_topic} → {output_topic}')
+        # Log stats every 5 seconds
+        self.create_timer(5.0, self._log_stats)
+
+        self.get_logger().info(f'Relay: {input_topic} → {output_topic}')
 
     def _callback(self, msg: CompressedImage):
-        np_arr = np.frombuffer(msg.data, np.uint8)
-        img    = cv2.imdecode(np_arr, cv2.IMREAD_COLOR)
-        if img is None:
-            self.get_logger().warn('Failed to decode compressed image', 
-                                   throttle_duration_sec=5.0)
-            return
+        self.received += 1
+        try:
+            img = self.bridge.compressed_imgmsg_to_cv2(
+                msg, desired_encoding='bgr8')
+            out = self.bridge.cv2_to_imgmsg(img, encoding='bgr8')
+            out.header = msg.header
+            self.pub.publish(out)
+            self.published += 1
+        except Exception as e:
+            self.get_logger().warn(
+                f'Decode failed: {e}', throttle_duration_sec=2.0)
 
-        out             = Image()
-        out.header      = msg.header
-        out.height      = img.shape[0]
-        out.width       = img.shape[1]
-        out.encoding    = 'bgr8'
-        out.is_bigendian = 0
-        out.step        = img.shape[1] * 3
-        out.data        = img.tobytes()
-        self.pub.publish(out)
+    def _log_stats(self):
+        self.get_logger().info(
+            f'Relay stats — received: {self.received}, '
+            f'published: {self.published}')
+        self.received  = 0
+        self.published = 0
 
 
 def main(args=None):
