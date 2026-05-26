@@ -26,6 +26,7 @@ setup(
     entry_points={
         'console_scripts': [
             'object_tracker = auwo_perception.object_tracker:main',
+            'image_relay    = auwo_perception.image_relay:main',
         ],
     },
 )
