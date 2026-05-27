@@ -24,8 +24,9 @@ def generate_launch_description():
         namespace='apriltag',
         parameters=[config],
         remappings=[
+            # image_transport derives camera_info from image namespace automatically
             ('image_rect',  '/oak/rgb/image_relay'),
-            ('camera_info', '/oak/oak_d_pro/rgb/camera_info'),
+            ('camera_info', '/oak/rgb/camera_info'),
         ],
         output='screen',
     )
