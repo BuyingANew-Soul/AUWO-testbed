@@ -10,10 +10,29 @@ def generate_launch_description():
         'config', 'apriltag.yaml'
     )
 
-    relay_node = Node(
-        package='auwo_perception',
-        executable='image_relay',
-        name='image_relay',
+    # C++ rectify node — subscribes compressed, publishes image_rect
+    rectify_node = Node(
+        package='image_proc',
+        executable='rectify_node',
+        name='image_rectify',
+        parameters=[{'image_transport': 'compressed'}],
+        remappings=[
+            ('image',       '/oak/oak_d_pro/rgb/image_raw'),
+            ('camera_info', '/oak/oak_d_pro/rgb/camera_info'),
+            ('image_rect',  '/oak/rgb/image_rect'),
+        ],
+        output='screen',
+    )
+
+    # Relay camera_info to where image_transport expects it
+    camera_info_relay = Node(
+        package='topic_tools',
+        executable='relay',
+        name='camera_info_relay',
+        arguments=[
+            '/oak/oak_d_pro/rgb/camera_info',
+            '/oak/rgb/camera_info',
+        ],
         output='screen',
     )
 
@@ -24,8 +43,7 @@ def generate_launch_description():
         namespace='apriltag',
         parameters=[config],
         remappings=[
-            # image_transport derives camera_info from image namespace automatically
-            ('image_rect',  '/oak/rgb/image_relay'),
+            ('image_rect',  '/oak/rgb/image_rect'),
             ('camera_info', '/oak/rgb/camera_info'),
         ],
         output='screen',
@@ -43,7 +61,8 @@ def generate_launch_description():
     )
 
     return LaunchDescription([
-        relay_node,
+        rectify_node,
+        camera_info_relay,
         apriltag_node,
         tracker_node,
     ])
