@@ -10,21 +10,19 @@ def generate_launch_description():
         'config', 'apriltag.yaml'
     )
 
-    # C++ rectify node — subscribes compressed, publishes image_rect
     rectify_node = Node(
         package='image_proc',
         executable='rectify_node',
         name='image_rectify',
-        parameters=[{'image_transport': 'compressed'}],
         remappings=[
-            ('image',       '/oak/oak_d_pro/rgb/image_raw'),
-            ('camera_info', '/oak/oak_d_pro/rgb/camera_info'),
-            ('image_rect',  '/oak/rgb/image_rect'),
+            # Explicitly remap the compressed sub-topic
+            ('image/compressed',  '/oak/oak_d_pro/rgb/image_raw/compressed'),
+            ('camera_info',       '/oak/oak_d_pro/rgb/camera_info'),
+            ('image_rect',        '/oak/rgb/image_rect'),
         ],
         output='screen',
     )
 
-    # Relay camera_info to where image_transport expects it
     camera_info_relay = Node(
         package='topic_tools',
         executable='relay',
