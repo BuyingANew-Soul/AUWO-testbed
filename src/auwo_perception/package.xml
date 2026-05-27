@@ -16,6 +16,7 @@
   <depend>auwo_interfaces</depend>
   <depend>python3-opencv</depend>
   <depend>cv_bridge</depend>
+  <exec_depend>image_proc</exec_depend>
 
   <buildtool_depend>ament_python</buildtool_depend>
 
