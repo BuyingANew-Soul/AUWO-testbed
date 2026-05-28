@@ -36,6 +36,7 @@
       i_pipeline_type: RGB
 
     rgb:
+      i_qos_profile: SENSOR_DATA
       i_board_socket_id: 0
       i_low_bandwidth: false
       i_fps: 20.0
