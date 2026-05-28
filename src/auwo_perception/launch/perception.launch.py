@@ -10,29 +10,29 @@ def generate_launch_description():
         'config', 'apriltag.yaml'
     )
 
-    rectify_node = Node(
-        package='image_proc',
-        executable='rectify_node',
-        name='image_rectify',
-        remappings=[
-            # Explicitly remap the compressed sub-topic
-            ('image/compressed',  '/oak/oak_d_pro/rgb/image_raw/compressed'),
-            ('camera_info',       '/oak/oak_d_pro/rgb/camera_info'),
-            ('image_rect',        '/oak/rgb/image_rect'),
-        ],
-        output='screen',
-    )
+    # rectify_node = Node(
+    #     package='image_proc',
+    #     executable='rectify_node',
+    #     name='image_rectify',
+    #     remappings=[
+    #         # Explicitly remap the compressed sub-topic
+    #         ('image/compressed',  '/oak/oak_d_pro/rgb/image_raw/compressed'),
+    #         ('camera_info',       '/oak/oak_d_pro/rgb/camera_info'),
+    #         ('image_rect',        '/oak/rgb/image_rect'),
+    #     ],
+    #     output='screen',
+    # )
 
-    camera_info_relay = Node(
-        package='topic_tools',
-        executable='relay',
-        name='camera_info_relay',
-        arguments=[
-            '/oak/oak_d_pro/rgb/camera_info',
-            '/oak/rgb/camera_info',
-        ],
-        output='screen',
-    )
+    # camera_info_relay = Node(
+    #     package='topic_tools',
+    #     executable='relay',
+    #     name='camera_info_relay',
+    #     arguments=[
+    #         '/oak/oak_d_pro/rgb/camera_info',
+    #         '/oak/rgb/camera_info',
+    #     ],
+    #     output='screen',
+    # )
 
     apriltag_node = Node(
         package='apriltag_ros',
@@ -59,8 +59,7 @@ def generate_launch_description():
     )
 
     return LaunchDescription([
-        rectify_node,
-        camera_info_relay,
+
         apriltag_node,
         tracker_node,
     ])
