@@ -22,16 +22,14 @@ def generate_launch_description():
         package='image_transport',
         executable='republish',
         name='image_republish',
+        arguments=['compressed', 'raw',
+                '--ros-args',
+                '-r', 'in/compressed:=/oak/oak_d_pro/rgb/image_raw/compressed',
+                '-r', 'out:=/oak/rgb/image_raw_local'],
         parameters=[{
             'in_transport':  'compressed',
             'out_transport': 'raw',
-            'qos_overrides./oak/oak_d_pro/rgb/image_raw/compressed'
-            '.subscription.reliability': 'best_effort',
         }],
-        remappings=[
-            ('in/compressed',  '/oak/oak_d_pro/rgb/image_raw/compressed'),
-            ('out',            '/oak/rgb/image_raw_local'),
-        ],
         output='screen',
     )
 
