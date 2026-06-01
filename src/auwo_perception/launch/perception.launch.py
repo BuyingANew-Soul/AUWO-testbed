@@ -18,16 +18,19 @@ def generate_launch_description():
     #    network and republishes as raw locally on the laptop — zero extra
     #    network cost compared to subscribing to /image_raw directly.
     # ---------------------------------------------------------------------------
-    rectify_node = Node(
-        package='image_proc',
-        executable='rectify_node',
-        name='image_rectify',
-        remappings=[
-            ('image',       '/oak/oak_d_pro/rgb/image_raw'),
-            ('camera_info', '/oak/oak_d_pro/rgb/camera_info'),
-            ('image_rect',  '/oak/rgb/image_rect'),
-        ],
-        output='screen',
+    # republish_node = Node(
+    #     package='image_transport',
+    #     executable='republish',
+    #     name='image_republish',
+    #     arguments=['compressed', 'raw',
+    #             '--ros-args',
+    #             '-r', 'in/compressed:=/oak/oak_d_pro/rgb/image_raw/compressed',
+    #             '-r', 'out:=/oak/rgb/image_raw_local'],
+    #     parameters=[{
+    #         'in_transport':  'compressed',
+    #         'out_transport': 'raw',
+    #     }],
+    #     output='screen',
     )
 
     # ---------------------------------------------------------------------------
@@ -37,10 +40,13 @@ def generate_launch_description():
         package='image_proc',
         executable='rectify_node',
         name='image_rectify',
+        parameters=[{
+            'image_transport': 'compressed',
+        }],
         remappings=[
-            ('image',        '/oak/rgb/image_raw_local'),   # ← local, not network
-            ('camera_info',  '/oak/oak_d_pro/rgb/camera_info'),
-            ('image_rect',   '/oak/rgb/image_rect'),
+            ('image',       '/oak/oak_d_pro/rgb/image_raw'),
+            ('camera_info', '/oak/oak_d_pro/rgb/camera_info'),
+            ('image_rect',  '/oak/rgb/image_rect'),
         ],
         output='screen',
     )
@@ -92,7 +98,7 @@ def generate_launch_description():
     )
 
     return LaunchDescription([
-        republish_node,
+        # republish_node,
         rectify_node,
         camera_info_relay,
         # apriltag_node,   # uncomment when ready
