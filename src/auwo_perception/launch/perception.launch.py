@@ -22,17 +22,16 @@ def generate_launch_description():
         package='image_transport',
         executable='republish',
         name='image_republish',
-        arguments=['compressed', 'raw'],          # in_transport → out_transport
+        parameters=[{
+            'in_transport':  'compressed',
+            'out_transport': 'raw',
+            'qos_overrides./oak/oak_d_pro/rgb/image_raw/compressed'
+            '.subscription.reliability': 'best_effort',
+        }],
         remappings=[
             ('in/compressed',  '/oak/oak_d_pro/rgb/image_raw/compressed'),
             ('out',            '/oak/rgb/image_raw_local'),
         ],
-        parameters=[{
-            # BEST_EFFORT: drop stale frames instead of retransmitting —
-            # much better for live video over WiFi
-            'qos_overrides./oak/oak_d_pro/rgb/image_raw/compressed'
-            '.subscription.reliability': 'best_effort',
-        }],
         output='screen',
     )
 
