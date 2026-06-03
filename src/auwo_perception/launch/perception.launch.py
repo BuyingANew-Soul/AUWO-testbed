@@ -29,13 +29,22 @@ def generate_launch_description():
 
     # camera_info flows fine over network (small). Relay it to the
     # namespace image_transport expects (same as image topic).
-    camera_info_relay = Node(
-        package='topic_tools',
-        executable='relay',
-        name='camera_info_relay',
-        arguments=[
-            '/oak/oak_d_pro/rgb/camera_info',
-            '/oak/rgb/camera_info',
+    camera_info_node = Node(
+        package='auwo_perception',
+        executable='camera_info_rectified',
+        name='camera_info_rectified',
+        output='screen',
+    )
+
+    apriltag_node = Node(
+        package='apriltag_ros',
+        executable='apriltag_node',
+        name='apriltag',
+        namespace='apriltag',
+        parameters=[config],
+        remappings=[
+            ('image_rect',  '/oak/rgb/image_decompressed'),
+            ('camera_info', '/oak/rgb/camera_info'),
         ],
         output='screen',
     )
