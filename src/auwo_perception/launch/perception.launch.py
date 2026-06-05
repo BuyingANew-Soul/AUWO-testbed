@@ -1,60 +1,57 @@
 import os
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
-from launch_ros.actions import Node
+from launch_ros.actions import ComposableNodeContainer, Node
+from launch_ros.descriptions import ComposableNode
 
 
 def generate_launch_description():
-    config = os.path.join(
+    cam_config = os.path.join(
+        get_package_share_directory('oak_d_bringup'),
+        'config', 'oak_d_pro.yaml'
+    )
+    tag_config = os.path.join(
         get_package_share_directory('auwo_perception'),
         'config', 'apriltag.yaml'
     )
 
-    # Industry-standard: image_transport republish decompresses on the
-    # receiving machine. C++ node, correctly honors in_transport param.
-    republish_node = Node(
-        package='image_transport',
-        executable='republish',
-        name='rgb_republish',
-        parameters=[
-            {'in_transport':  'compressed'},
-            {'out_transport': 'raw'},
-        ],
-        remappings=[
-            ('in/compressed', '/oak/oak_d_pro/rgb/image_raw/compressed'),
-            ('out',           '/oak/rgb/image_rect'),
+    # Camera + rectify composed → intra-process zero-copy for the raw image
+    container = ComposableNodeContainer(
+        name='perception_container',
+        namespace='',
+        package='rclcpp_components',
+        executable='component_container_mt',
+        composable_node_descriptions=[
+            ComposableNode(
+                package='depthai_ros_driver',
+                plugin='depthai_ros_driver::Camera',
+                name='oak_d_pro',
+                namespace='oak',
+                parameters=[cam_config],
+                extra_arguments=[{'use_intra_process_comms': True}],
+            ),
+            ComposableNode(
+                package='image_proc',
+                plugin='image_proc::RectifyNode',
+                name='rgb_rectify',
+                remappings=[
+                    ('image',       '/oak/oak_d_pro/rgb/image_raw'),
+                    ('camera_info', '/oak/oak_d_pro/rgb/camera_info'),
+                    ('image_rect',  '/oak/rgb/image_rect'),
+                ],
+                extra_arguments=[{'use_intra_process_comms': True}],
+            ),
         ],
         output='screen',
     )
 
-    # camera_info flows fine over network (small). Relay it to the
-    # namespace image_transport expects (same as image topic).
-    camera_info_node = Node(
-        package='auwo_perception',
-        executable='camera_info_rectified',
-        name='camera_info_rectified',
-        output='screen',
-    )
-
+    # apriltag runs standalone (no composable component in this build)
     apriltag_node = Node(
         package='apriltag_ros',
         executable='apriltag_node',
         name='apriltag',
         namespace='apriltag',
-        parameters=[config],
-        remappings=[
-            ('image_rect',  '/oak/rgb/image_decompressed'),
-            ('camera_info', '/oak/rgb/camera_info'),
-        ],
-        output='screen',
-    )
-
-    apriltag_node = Node(
-        package='apriltag_ros',
-        executable='apriltag_node',
-        name='apriltag',
-        namespace='apriltag',
-        parameters=[config],
+        parameters=[tag_config],
         remappings=[
             ('image_rect',  '/oak/rgb/image_rect'),
             ('camera_info', '/oak/rgb/camera_info'),
@@ -62,20 +59,13 @@ def generate_launch_description():
         output='screen',
     )
 
-    tracker_node = Node(
-        package='auwo_perception',
-        executable='object_tracker',
-        name='object_tracker',
+    # camera_info to where apriltag's image_transport expects it
+    camera_info_relay = Node(
+        package='topic_tools',
+        executable='relay',
+        name='camera_info_relay',
+        arguments=['/oak/oak_d_pro/rgb/camera_info', '/oak/rgb/camera_info'],
         output='screen',
-        parameters=[{
-            'tag_labels':   ['0:red_cube', '1:blue_cube', '2:green_cube'],
-            'target_frame': 'arm_base_link',
-        }],
     )
 
-    return LaunchDescription([
-        republish_node,
-        camera_info_relay,
-        apriltag_node,
-        tracker_node,
-    ])
+    return LaunchDescription([container, apriltag_node, camera_info_relay])
