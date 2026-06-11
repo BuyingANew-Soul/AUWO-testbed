@@ -24,6 +24,8 @@ setup(
     },
     entry_points={
         'console_scripts': [
+            'grasp_node = auwo_task_planner.grasp_node:main',
+            'pick_place_server = auwo_task_planner.pick_place_server:main'
         ],
     },
 )

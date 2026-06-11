@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="ugv_rover_base">
-<xacro:macro name="ugv_rover_base" params="prefix:=''">
+<xacro:macro name="ugv_rover_base" params="prefix:='' wheel_joint_type:='continuous'">
 
   <link name="${prefix}base_footprint"/>
 
@@ -38,7 +38,7 @@
   <link name="${prefix}base_imu_link"/>
 
   <!-- Left front wheel -->
-  <joint name="${prefix}left_up_wheel_joint" type="continuous">
+  <joint name="${prefix}left_up_wheel_joint" type="${wheel_joint_type}">
     <origin xyz="0.0855 0.08726 -0.041212" rpy="1.5708 0 0"/>
     <parent link="${prefix}base_link"/>
     <child  link="${prefix}left_up_wheel_link"/>
@@ -65,7 +65,7 @@
   </link>
 
   <!-- Left rear wheel -->
-  <joint name="${prefix}left_down_wheel_joint" type="continuous">
+  <joint name="${prefix}left_down_wheel_joint" type="${wheel_joint_type}">
     <origin xyz="-0.0855 0.08726 -0.041212" rpy="1.5708 0 0"/>
     <parent link="${prefix}base_link"/>
     <child  link="${prefix}left_down_wheel_link"/>
@@ -92,7 +92,7 @@
   </link>
 
   <!-- Right front wheel -->
-  <joint name="${prefix}right_up_wheel_joint" type="continuous">
+  <joint name="${prefix}right_up_wheel_joint" type="${wheel_joint_type}">
     <origin xyz="0.0855 -0.08726 -0.041212" rpy="1.5708 0 0"/>
     <parent link="${prefix}base_link"/>
     <child  link="${prefix}right_up_wheel_link"/>
@@ -119,7 +119,7 @@
   </link>
 
   <!-- Right rear wheel -->
-  <joint name="${prefix}right_down_wheel_joint" type="continuous">
+  <joint name="${prefix}right_down_wheel_joint" type="${wheel_joint_type}">
     <origin xyz="-0.0855 -0.08726 -0.041212" rpy="1.5708 0 0"/>
     <parent link="${prefix}base_link"/>
     <child  link="${prefix}right_down_wheel_link"/>
