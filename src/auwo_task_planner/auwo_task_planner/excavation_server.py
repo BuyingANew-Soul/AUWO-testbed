@@ -5,12 +5,15 @@ from rclpy.node import Node
 from rclpy.action import ActionClient
 from rclpy.callback_groups import ReentrantCallbackGroup
 from rclpy.executors import MultiThreadedExecutor
+from rclpy.time import Time
 
 from std_srvs.srv import Trigger
+from std_msgs.msg import Bool
 from geometry_msgs.msg import PointStamped
 from moveit_msgs.action import MoveGroup
 from moveit_msgs.srv import GetPositionIK
 from moveit_msgs.msg import MotionPlanRequest, Constraints, JointConstraint
+import tf2_ros
 
 ARM_GROUP="arm"; GRIPPER_GROUP="gripper"; GRIPPER_JOINT="link3_to_gripper_link"
 EE_LINK="hand_tcp"; PLANNING_FRAME="base_link"
@@ -21,36 +24,39 @@ class ExcavationServer(Node):
         super().__init__("excavation_server")
         self.cb = ReentrantCallbackGroup()
 
-        # dig point (used when no /excavation/target has arrived)
         self.declare_parameter("dig_x", 0.22)
         self.declare_parameter("dig_y", 0.0)
         self.declare_parameter("dig_z", 0.04)
-        # lowest z the arm can actually reach in base_link; sim targets are clamped up to this
-        self.declare_parameter("z_floor", 0.04)
-        # cycle shape
+        self.declare_parameter("z_floor", -0.10)
         self.declare_parameter("approach_height", 0.08)
-        self.declare_parameter("drag_distance", 0.03)   # drag toward base (-x) during scoop
+        self.declare_parameter("drag_distance", 0.03)
         self.declare_parameter("lift_height", 0.10)
-        # dump pose (used when no /excavation/dump_target has arrived)
         self.declare_parameter("dump_x", 0.20)
         self.declare_parameter("dump_y", 0.12)
         self.declare_parameter("dump_z", 0.06)
         self.declare_parameter("dump_hover", 0.06)
-        # rest pose
         self.declare_parameter("home_x", 0.18)
         self.declare_parameter("home_y", 0.0)
         self.declare_parameter("home_z", 0.12)
-        # bucket + speed
-        self.declare_parameter("gripper_open_rad", 1.5)
-        self.declare_parameter("gripper_grip_rad", math.radians(60))
+        self.declare_parameter("gripper_open_rad", 0.0)
+        self.declare_parameter("gripper_grip_rad", 1.5)
         self.declare_parameter("vel_scale", 0.3)
         self.declare_parameter("ik_avoid_collisions", True)
 
         self._target = None
         self._dump_target = None
         self._busy = False
+
+        # --- e-stop state ---
+        self._estopped = False
+        self._active_goal = None   # in-flight MoveGroup goal handle, for cancellation
+
+        self._tf_buf = tf2_ros.Buffer()
+        self._tf_listener = tf2_ros.TransformListener(self._tf_buf, self)
+
         self.create_subscription(PointStamped, "/excavation/target", self._target_cb, 10, callback_group=self.cb)
         self.create_subscription(PointStamped, "/excavation/dump_target", self._dump_cb, 10, callback_group=self.cb)
+        self.create_subscription(Bool, "/estop/stopped", self._estop_cb, 10, callback_group=self.cb)
         self._move = ActionClient(self, MoveGroup, "/move_action", callback_group=self.cb)
         self._ik_cli = self.create_client(GetPositionIK, "/compute_ik", callback_group=self.cb)
         self.create_service(Trigger, "excavate", self._excavate_cb, callback_group=self.cb)
@@ -60,13 +66,26 @@ class ExcavationServer(Node):
 
     def _floor(self, z): return max(float(z), self._p("z_floor"))
 
+    def _estop_cb(self, msg: Bool):
+        was = self._estopped
+        self._estopped = bool(msg.data)
+        if self._estopped and not was:
+            self.get_logger().error("E-STOP received — cancelling any in-flight motion.")
+            self._cancel_active()
+
+    def _cancel_active(self):
+        gh = self._active_goal
+        if gh is not None:
+            try:
+                gh.cancel_goal_async()
+            except Exception as e:
+                self.get_logger().warn(f"goal cancel failed: {e}")
+
     def _target_cb(self, msg):
         self._target = (msg.point.x, msg.point.y, msg.point.z)
-        self.get_logger().info(f"dig target → ({msg.point.x:.3f}, {msg.point.y:.3f}, {msg.point.z:.3f})")
 
     def _dump_cb(self, msg):
         self._dump_target = (msg.point.x, msg.point.y, msg.point.z)
-        self.get_logger().info(f"dump target → ({msg.point.x:.3f}, {msg.point.y:.3f}, {msg.point.z:.3f})")
 
     def _dig_point(self):
         if self._target is not None:
@@ -87,6 +106,18 @@ class ExcavationServer(Node):
         while not future.done() and time.time()-start < timeout:
             time.sleep(0.02)
         return future.result() if future.done() else None
+
+    def _log_tcp(self, cx, cy, cz):
+        time.sleep(0.15)
+        try:
+            tr = self._tf_buf.lookup_transform(PLANNING_FRAME, EE_LINK, Time())
+            a = tr.transform.translation
+            self.get_logger().info(
+                f"    TCP cmd=({cx:.3f},{cy:.3f},{cz:.3f}) "
+                f"actual=({a.x:.3f},{a.y:.3f},{a.z:.3f}) "
+                f"err=({a.x-cx:+.3f},{a.y-cy:+.3f},{a.z-cz:+.3f})")
+        except Exception as e:
+            self.get_logger().warn(f"    TCP lookup ({PLANNING_FRAME}->{EE_LINK}) failed: {e}")
 
     def _ik(self, x, y, z):
         if not self._ik_cli.wait_for_service(timeout_sec=5.0):
@@ -110,6 +141,8 @@ class ExcavationServer(Node):
         return {n: p for n, p in zip(js.name, js.position) if n != GRIPPER_JOINT}
 
     def _move_arm(self, x, y, z):
+        if self._estopped:
+            return False
         sol = self._ik(x, y, z)
         if sol is None: return False
         c = Constraints()
@@ -117,15 +150,22 @@ class ExcavationServer(Node):
             jc = JointConstraint(); jc.joint_name = n; jc.position = float(p)
             jc.tolerance_above = 0.01; jc.tolerance_below = 0.01; jc.weight = 1.0
             c.joint_constraints.append(jc)
-        return self._call_move(c, ARM_GROUP)
+        ok = self._call_move(c, ARM_GROUP)
+        if ok:
+            self._log_tcp(x, y, z)
+        return ok
 
     def _move_gripper(self, v):
+        if self._estopped:
+            return False
         jc = JointConstraint(); jc.joint_name = GRIPPER_JOINT; jc.position = float(v)
         jc.tolerance_above = 0.02; jc.tolerance_below = 0.02; jc.weight = 1.0
         c = Constraints(); c.joint_constraints.append(jc)
         return self._call_move(c, GRIPPER_GROUP)
 
     def _call_move(self, constraints, group):
+        if self._estopped:
+            return False
         req = MotionPlanRequest(); req.group_name = group
         req.num_planning_attempts = 10; req.allowed_planning_time = 5.0
         req.max_velocity_scaling_factor = self._p("vel_scale")
@@ -140,15 +180,21 @@ class ExcavationServer(Node):
         gh = self._wait(self._move.send_goal_async(g))
         if gh is None or not gh.accepted:
             self.get_logger().error("move_group rejected goal"); return False
+        self._active_goal = gh
+        if self._estopped:                  # tripped during goal submission
+            self._cancel_active()
         res = self._wait(gh.get_result_async())
+        self._active_goal = None
         if res is None:
-            self.get_logger().error("move_group timed out"); return False
+            self.get_logger().error("move_group timed out / cancelled"); return False
         if res.result.error_code.val != 1:
-            self.get_logger().warn(f"move failed code={res.result.error_code.val}")
+            self.get_logger().warn(f"move ended code={res.result.error_code.val} (cancelled or failed)")
             return False
         return True
 
     def _excavate_cb(self, request, response):
+        if self._estopped:
+            response.success = False; response.message = "e-stopped — re-arm to run"; return response
         if self._busy:
             response.success = False; response.message = "busy"; return response
         self._busy = True
@@ -181,8 +227,13 @@ class ExcavationServer(Node):
             ("RETURN",     lambda: self._move_arm(hx, hy, hz)),
         ]
         for name, fn in seq:
+            if self._estopped:
+                self.get_logger().error(f"[excavate] HALTED at {name} (e-stop)")
+                return False, "e-stopped mid-cycle"
             self.get_logger().info(f"[excavate] {name}")
             if not fn():
+                if self._estopped:
+                    return False, "e-stopped mid-cycle"
                 return False, f"{name} failed"
         self.get_logger().info("[excavate] cycle complete")
         return True, "excavation cycle complete"
